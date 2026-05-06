@@ -1,0 +1,67 @@
+# Python
+.venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Experiment tracking and outputs
+wandb/
+**/wandb/
+outputs/
+**/output/
+**/outputs/
+results/
+**/results/
+diffusion_samples/
+
+# Data
+**/data/
+**/tucker_factors/
+datasets/
+**/datasets/
+**/metric_dataset/
+**/test_data/
+
+# Visualizations
+plots/
+**/plots/
+figures/
+**/figures/
+
+# Test outputs
+tests/test_outputs/
+**/test/
+
+# Checkpoints
+*.pt
+*.pth
+*.ckpt
+
+# Wandb archives
+wandb_archive_*.tar.gz
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+**/logs/
+
+**/.mnist_cache/
+
+paper_images/
