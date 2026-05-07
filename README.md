@@ -1,4 +1,4 @@
-# DiffATS — Diffusion in an Aligned Tensor Space
+# DiffATS — Diffusion in Aligned Tensor Space
 
 ![CelebA-HQ samples](assets/celeba_row.png)
 
