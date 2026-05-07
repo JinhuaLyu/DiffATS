@@ -1,0 +1,41 @@
+# ── Data ──────────────────────────────────────────────────────────────────────
+data_dir:      /anvil/projects/x-eng260004/factor_diffusion/tucker_factors/burgers_2d/tucker_burgers_rT5_rH20_rW20
+test_data_dir: /anvil/projects/x-eng260004/factor_diffusion/tucker_factors/burgers_2d/tucker_burgers_rT5_rH20_rW20/test_data
+n_test:     100                                  # ignored when test_data_dir is set
+
+# ── Training schedule ─────────────────────────────────────────────────────────
+n_epochs:   1000       # set to null to use n_steps instead
+n_steps:    1000000      # used only when n_epochs is null
+batch_size: 32
+lr:         1.0e-4
+grad_clip:  1.0
+ema_rate:   0.9999
+seed:       0
+
+# ── Model ─────────────────────────────────────────────────────────────────────
+hidden_size: 512
+depth:       8
+num_heads:   8
+mlp_ratio:   4.0
+
+# ── Diffusion ─────────────────────────────────────────────────────────────────
+T_diffusion:    1000
+sample_steps:   250
+noise_schedule: linear
+
+# ── Logging / checkpointing ───────────────────────────────────────────────────
+log_every:          500    # steps — scalar loss log interval
+vis_every_epochs:   10     # epochs — sampling + WandB image upload
+save_every_epochs:  100    # epochs — checkpoint save
+n_vis:          4
+mixed_precision: true
+
+# ── Output ────────────────────────────────────────────────────────────────────
+outdir:          /anvil/projects/x-eng260004/factor_diffusion/our_method_results/burgers_2d
+wandb_project:   factor_diffusion
+wandb_run:       v1_burgers2d_rT5
+wandb_entity:    null
+
+# ── Hardware ──────────────────────────────────────────────────────────────────
+device:  auto        # auto | cpu | cuda | cuda:N
+resume:  null        # path to checkpoint; null = auto-detect from checkpoints/

@@ -1,0 +1,80 @@
+# -- Data ---------------------------------------------------------------------
+shard_dir: "/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/Exp_p32r32_acceleration/celebahq1024_patchsvd_procrustes_refimg_p32_r32"
+num_workers: 8
+prefetch_factor: 4
+
+# -- Patch-SVD layout (CelebA-HQ 1024x1024, patch=32, rank=32) ----------------
+image_size: 1024     # input image side length
+patch:      32       # square patch side
+svd_rank:   32       # SVD rank kept per channel
+# derived:  patch_dim = patch*patch = 1024
+#           alpha_n   = (image_size/patch)^2 = 1024
+#           joint_h   = alpha_n + patch_dim = 2048
+input_size: [2048, 32]   # JointDiT (joint_h, rank)
+in_channels: 3
+patch_size:  [32, 32]    # passed to DiT layout inference
+
+# -- Model architecture (JointDiT) --------------------------------------------
+model:        "JointDiT"
+hidden_size:  768
+depth:        12
+num_heads:    12
+mlp_ratio:    4.0
+
+# DiT-only options (kept for parity; ignored when model=JointDiT)
+num_classes:        0
+class_dropout_prob: 0.1
+use_col_mask:       false
+radius:             1
+channel_wise_embed: false
+
+# -- Training ------------------------------------------------------------------
+epochs:            1000
+global_batch_size: 32
+lr:                1.0e-4
+weight_decay:      0.0
+seed:              42
+compile:           true
+use_bf16:          true
+
+# -- Diffusion -----------------------------------------------------------------
+noise_schedule:  "linear"
+diffusion_steps: 1000
+sample_steps:    250        # fast sampler used for in-training previews
+predict_xstart:  true
+learn_sigma:     false
+
+# -- Normalization stats (refimg Procrustes) ----------------------------------
+alpha_stats_path: "/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/Exp_p32r32_acceleration/alpha_stats_procrustes_refimg_p32_r32.pt"
+vhat_stats_path:  "/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/Exp_p32r32_acceleration/vhat_stats_procrustes_refimg_p32_r32.pt"
+norm_std:         0.5       # fallback scalar if alpha_stats_path missing
+
+# -- Procrustes / dict mode flags ---------------------------------------------
+proc_align:      true
+ortho_augment:   false
+use_global_dict: false
+use_dict_cond:   true        # only used when model=DiT with global dict
+gen_dict:        false
+channel_wise:    false
+augmentation:    false
+dict_path:       ""          # only required when use_global_dict=true
+
+# -- Auxiliary loss (image-space MSE) -----------------------------------------
+aux_loss:   false
+aux_weight: 0.001
+
+# -- Optimization features ----------------------------------------------------
+ema: false
+
+# -- Logging & checkpointing --------------------------------------------------
+log_every:   100
+ckpt_every:  10000
+results_dir: "/anvil/projects/x-eng260004/factor_diffusion/ablation_results/our_method"
+
+# -- Resume --------------------------------------------------------------------
+resume: ""   # checkpoint .pt path or directory; empty = start fresh
+
+# -- Weights & Biases ----------------------------------------------------------
+wandb_project:  "ablation_study"
+wandb_run_name: "our_method"
+wandb_entity:   ""           # empty -> use ~/.netrc default entity

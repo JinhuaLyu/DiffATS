@@ -1,0 +1,55 @@
+# -- Method (ABLATION-SPECIFIC) -----------------------------------------------
+method: "shared_bases"            # alpha-only AlphaOnlyDiT on global PCA basis
+
+# -- Data (paths method-specific; sizes mirror our_method) --------------------
+shard_dir:        "/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/shared_bases"
+alpha_stats_path: "/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/shared_bases/alpha_stats_global_pca_p32_r32.pt"
+dict_path:        "/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/shared_bases/global_dict.pt"
+num_workers:     8
+prefetch_factor: 4
+
+# -- Patch-SVD layout (mirrors our_method) ------------------------------------
+image_size: 1024
+patch:      32
+svd_rank:   32
+patch_size: [32, 32]
+in_channels: 3
+
+# -- Model architecture (mirrors our_method, with model class swapped) --------
+hidden_size: 768
+depth:       12
+num_heads:   12
+mlp_ratio:   4.0
+
+# -- Training (mirrors our_method) --------------------------------------------
+epochs:            1000
+global_batch_size: 32
+lr:                1.0e-4
+weight_decay:      0.0
+seed:              42
+compile:           true
+use_bf16:          true
+ema:               false
+
+# -- Diffusion (mirrors our_method) -------------------------------------------
+noise_schedule:  "linear"
+diffusion_steps: 1000
+sample_steps:    250
+predict_xstart:  true
+learn_sigma:     false
+
+# -- Logging & checkpointing (mirrors our_method) -----------------------------
+# our_method is step-based: log_every: 100, ckpt_every: 10000.
+# At bs=32, dataset 30000 -> 938 steps/epoch -> 10000 steps ~= 10.7 epochs.
+# This new train.py is epoch-based, so we use ckpt_every_epoch~=11.
+log_every:        100
+ckpt_every_epoch: 11
+results_dir: "/anvil/projects/x-eng260004/factor_diffusion/ablation_results/shared_bases"
+
+# -- Resume --------------------------------------------------------------------
+resume: ""
+
+# -- Weights & Biases (project mirrors our_method; run_name method-specific) --
+wandb_project:  "ablation_study"
+wandb_run_name: "shared_bases"
+wandb_entity:   ""

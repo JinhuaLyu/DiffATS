@@ -1,0 +1,410 @@
+[Taichi] version 1.7.4, llvm 15.0.4, commit b4b956fd, linux, python 3.13.11
+[Taichi] Starting on arch=cuda
+[Taichi] Using GPU (device 4)
+Total param sets: 200
+T=201, clips=50, warmup=5000, sps=5
+dtype=torch.float32, out_dir=data
+
+[Param 050] niu=0.022, cx=29, cy=61, r=7, Re=63.64
+  clip  10/50  |  4.1s elapsed
+  clip  20/50  |  8.1s elapsed
+  clip  30/50  |  12.3s elapsed
+  clip  40/50  |  16.4s elapsed
+  clip  50/50  |  20.1s elapsed
+  → Saved 50 clips to data/shard_050.pt  (NaN reinits: 0)
+
+[Param 051] niu=0.022, cx=29, cy=61, r=9, Re=81.82
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.3s elapsed
+  clip  30/50  |  12.4s elapsed
+  clip  40/50  |  16.2s elapsed
+  clip  50/50  |  20.1s elapsed
+  → Saved 50 clips to data/shard_051.pt  (NaN reinits: 0)
+
+[Param 052] niu=0.022, cx=29, cy=67, r=7, Re=63.64
+  clip  10/50  |  4.1s elapsed
+  clip  20/50  |  8.2s elapsed
+  clip  30/50  |  12.1s elapsed
+  clip  40/50  |  15.9s elapsed
+  clip  50/50  |  19.9s elapsed
+  → Saved 50 clips to data/shard_052.pt  (NaN reinits: 0)
+
+[Param 053] niu=0.022, cx=29, cy=67, r=9, Re=81.82
+  clip  10/50  |  4.1s elapsed
+  clip  20/50  |  8.2s elapsed
+  clip  30/50  |  12.1s elapsed
+  clip  40/50  |  16.2s elapsed
+  clip  50/50  |  20.0s elapsed
+  → Saved 50 clips to data/shard_053.pt  (NaN reinits: 0)
+
+[Param 054] niu=0.022, cx=29, cy=72, r=7, Re=63.64
+  clip  10/50  |  4.1s elapsed
+  clip  20/50  |  7.9s elapsed
+  clip  30/50  |  12.0s elapsed
+  clip  40/50  |  16.1s elapsed
+  clip  50/50  |  19.8s elapsed
+  → Saved 50 clips to data/shard_054.pt  (NaN reinits: 0)
+
+[Param 055] niu=0.022, cx=29, cy=72, r=9, Re=81.82
+  clip  10/50  |  3.9s elapsed
+  clip  20/50  |  8.0s elapsed
+  clip  30/50  |  12.1s elapsed
+  clip  40/50  |  16.2s elapsed
+  clip  50/50  |  20.0s elapsed
+  → Saved 50 clips to data/shard_055.pt  (NaN reinits: 0)
+
+[Param 056] niu=0.022, cx=32, cy=56, r=7, Re=63.64
+  clip  10/50  |  4.1s elapsed
+  clip  20/50  |  8.2s elapsed
+  clip  30/50  |  12.4s elapsed
+  clip  40/50  |  16.5s elapsed
+  clip  50/50  |  19.9s elapsed
+  → Saved 50 clips to data/shard_056.pt  (NaN reinits: 0)
+
+[Param 057] niu=0.022, cx=32, cy=56, r=9, Re=81.82
+  clip  10/50  |  4.1s elapsed
+  clip  20/50  |  8.2s elapsed
+  clip  30/50  |  12.3s elapsed
+  clip  40/50  |  16.3s elapsed
+  clip  50/50  |  19.7s elapsed
+  → Saved 50 clips to data/shard_057.pt  (NaN reinits: 0)
+
+[Param 058] niu=0.022, cx=32, cy=61, r=7, Re=63.64
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.2s elapsed
+  clip  30/50  |  12.4s elapsed
+  clip  40/50  |  16.2s elapsed
+  clip  50/50  |  19.8s elapsed
+  → Saved 50 clips to data/shard_058.pt  (NaN reinits: 0)
+
+[Param 059] niu=0.022, cx=32, cy=61, r=9, Re=81.82
+  clip  10/50  |  4.1s elapsed
+  clip  20/50  |  8.2s elapsed
+  clip  30/50  |  12.3s elapsed
+  clip  40/50  |  15.7s elapsed
+  clip  50/50  |  19.6s elapsed
+  → Saved 50 clips to data/shard_059.pt  (NaN reinits: 0)
+
+[Param 060] niu=0.022, cx=32, cy=67, r=7, Re=63.64
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.2s elapsed
+  clip  30/50  |  12.3s elapsed
+  clip  40/50  |  15.4s elapsed
+  clip  50/50  |  19.4s elapsed
+  → Saved 50 clips to data/shard_060.pt  (NaN reinits: 0)
+
+[Param 061] niu=0.022, cx=32, cy=67, r=9, Re=81.82
+  clip  10/50  |  4.4s elapsed
+  clip  20/50  |  8.5s elapsed
+  clip  30/50  |  11.9s elapsed
+  clip  40/50  |  15.6s elapsed
+  clip  50/50  |  19.7s elapsed
+  → Saved 50 clips to data/shard_061.pt  (NaN reinits: 0)
+
+[Param 062] niu=0.022, cx=32, cy=72, r=7, Re=63.64
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.4s elapsed
+  clip  30/50  |  11.7s elapsed
+  clip  40/50  |  15.8s elapsed
+  clip  50/50  |  19.8s elapsed
+  → Saved 50 clips to data/shard_062.pt  (NaN reinits: 0)
+
+[Param 063] niu=0.022, cx=32, cy=72, r=9, Re=81.82
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.1s elapsed
+  clip  30/50  |  11.4s elapsed
+  clip  40/50  |  15.6s elapsed
+  clip  50/50  |  19.8s elapsed
+  → Saved 50 clips to data/shard_063.pt  (NaN reinits: 0)
+
+[Param 064] niu=0.022, cx=35, cy=56, r=7, Re=63.64
+  clip  10/50  |  4.1s elapsed
+  clip  20/50  |  7.9s elapsed
+  clip  30/50  |  11.6s elapsed
+  clip  40/50  |  15.7s elapsed
+  clip  50/50  |  19.8s elapsed
+  → Saved 50 clips to data/shard_064.pt  (NaN reinits: 0)
+
+[Param 065] niu=0.022, cx=35, cy=56, r=9, Re=81.82
+  clip  10/50  |  3.8s elapsed
+  clip  20/50  |  7.5s elapsed
+  clip  30/50  |  11.4s elapsed
+  clip  40/50  |  15.4s elapsed
+  clip  50/50  |  19.6s elapsed
+  → Saved 50 clips to data/shard_065.pt  (NaN reinits: 0)
+
+[Param 066] niu=0.022, cx=35, cy=61, r=7, Re=63.64
+  clip  10/50  |  3.9s elapsed
+  clip  20/50  |  7.5s elapsed
+  clip  30/50  |  11.6s elapsed
+  clip  40/50  |  15.7s elapsed
+  clip  50/50  |  19.9s elapsed
+  → Saved 50 clips to data/shard_066.pt  (NaN reinits: 0)
+
+[Param 067] niu=0.022, cx=35, cy=61, r=9, Re=81.82
+  clip  10/50  |  3.9s elapsed
+  clip  20/50  |  7.8s elapsed
+  clip  30/50  |  11.8s elapsed
+  clip  40/50  |  16.0s elapsed
+  clip  50/50  |  20.2s elapsed
+  → Saved 50 clips to data/shard_067.pt  (NaN reinits: 0)
+
+[Param 068] niu=0.022, cx=35, cy=67, r=7, Re=63.64
+  clip  10/50  |  3.8s elapsed
+  clip  20/50  |  7.8s elapsed
+  clip  30/50  |  11.9s elapsed
+  clip  40/50  |  16.0s elapsed
+  clip  50/50  |  20.2s elapsed
+  → Saved 50 clips to data/shard_068.pt  (NaN reinits: 0)
+
+[Param 069] niu=0.022, cx=35, cy=67, r=9, Re=81.82
+  clip  10/50  |  3.9s elapsed
+  clip  20/50  |  8.0s elapsed
+  clip  30/50  |  12.1s elapsed
+  clip  40/50  |  16.1s elapsed
+  clip  50/50  |  20.2s elapsed
+  → Saved 50 clips to data/shard_069.pt  (NaN reinits: 0)
+
+[Param 070] niu=0.022, cx=35, cy=72, r=7, Re=63.64
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.4s elapsed
+  clip  30/50  |  12.5s elapsed
+  clip  40/50  |  16.6s elapsed
+  clip  50/50  |  20.7s elapsed
+  → Saved 50 clips to data/shard_070.pt  (NaN reinits: 0)
+
+[Param 071] niu=0.022, cx=35, cy=72, r=9, Re=81.82
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.4s elapsed
+  clip  30/50  |  12.5s elapsed
+  clip  40/50  |  16.6s elapsed
+  clip  50/50  |  20.7s elapsed
+  → Saved 50 clips to data/shard_071.pt  (NaN reinits: 0)
+
+[Param 072] niu=0.022, cx=38, cy=56, r=7, Re=63.64
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.3s elapsed
+  clip  30/50  |  12.5s elapsed
+  clip  40/50  |  16.6s elapsed
+  clip  50/50  |  20.6s elapsed
+  → Saved 50 clips to data/shard_072.pt  (NaN reinits: 0)
+
+[Param 073] niu=0.022, cx=38, cy=56, r=9, Re=81.82
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.3s elapsed
+  clip  30/50  |  12.4s elapsed
+  clip  40/50  |  16.4s elapsed
+  clip  50/50  |  20.5s elapsed
+  → Saved 50 clips to data/shard_073.pt  (NaN reinits: 0)
+
+[Param 074] niu=0.022, cx=38, cy=61, r=7, Re=63.64
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.3s elapsed
+  clip  30/50  |  12.4s elapsed
+  clip  40/50  |  16.5s elapsed
+  clip  50/50  |  20.6s elapsed
+  → Saved 50 clips to data/shard_074.pt  (NaN reinits: 0)
+
+[Param 075] niu=0.022, cx=38, cy=61, r=9, Re=81.82
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.4s elapsed
+  clip  30/50  |  12.5s elapsed
+  clip  40/50  |  16.6s elapsed
+  clip  50/50  |  20.7s elapsed
+  → Saved 50 clips to data/shard_075.pt  (NaN reinits: 0)
+
+[Param 076] niu=0.022, cx=38, cy=67, r=7, Re=63.64
+  clip  10/50  |  4.3s elapsed
+  clip  20/50  |  8.4s elapsed
+  clip  30/50  |  12.5s elapsed
+  clip  40/50  |  16.6s elapsed
+  clip  50/50  |  20.7s elapsed
+  → Saved 50 clips to data/shard_076.pt  (NaN reinits: 0)
+
+[Param 077] niu=0.022, cx=38, cy=67, r=9, Re=81.82
+  clip  10/50  |  4.3s elapsed
+  clip  20/50  |  8.5s elapsed
+  clip  30/50  |  12.5s elapsed
+  clip  40/50  |  16.6s elapsed
+  clip  50/50  |  20.6s elapsed
+  → Saved 50 clips to data/shard_077.pt  (NaN reinits: 0)
+
+[Param 078] niu=0.022, cx=38, cy=72, r=7, Re=63.64
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.3s elapsed
+  clip  30/50  |  12.5s elapsed
+  clip  40/50  |  16.7s elapsed
+  clip  50/50  |  20.7s elapsed
+  → Saved 50 clips to data/shard_078.pt  (NaN reinits: 0)
+
+[Param 079] niu=0.022, cx=38, cy=72, r=9, Re=81.82
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.3s elapsed
+  clip  30/50  |  12.4s elapsed
+  clip  40/50  |  16.5s elapsed
+  clip  50/50  |  20.3s elapsed
+  → Saved 50 clips to data/shard_079.pt  (NaN reinits: 0)
+
+[Param 080] niu=0.025, cx=26, cy=56, r=7, Re=56.0
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.3s elapsed
+  clip  30/50  |  12.4s elapsed
+  clip  40/50  |  16.5s elapsed
+  clip  50/50  |  20.3s elapsed
+  → Saved 50 clips to data/shard_080.pt  (NaN reinits: 0)
+
+[Param 081] niu=0.025, cx=26, cy=56, r=9, Re=72.0
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.4s elapsed
+  clip  30/50  |  12.5s elapsed
+  clip  40/50  |  16.5s elapsed
+  clip  50/50  |  20.3s elapsed
+  → Saved 50 clips to data/shard_081.pt  (NaN reinits: 0)
+
+[Param 082] niu=0.025, cx=26, cy=61, r=7, Re=56.0
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.2s elapsed
+  clip  30/50  |  12.3s elapsed
+  clip  40/50  |  16.3s elapsed
+  clip  50/50  |  20.3s elapsed
+  → Saved 50 clips to data/shard_082.pt  (NaN reinits: 0)
+
+[Param 083] niu=0.025, cx=26, cy=61, r=9, Re=72.0
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.5s elapsed
+  clip  30/50  |  14.4s elapsed
+  clip  40/50  |  18.6s elapsed
+  clip  50/50  |  22.3s elapsed
+  → Saved 50 clips to data/shard_083.pt  (NaN reinits: 0)
+
+[Param 084] niu=0.025, cx=26, cy=67, r=7, Re=56.0
+  clip  10/50  |  4.3s elapsed
+  clip  20/50  |  8.5s elapsed
+  clip  30/50  |  12.7s elapsed
+  clip  40/50  |  16.8s elapsed
+  clip  50/50  |  20.5s elapsed
+  → Saved 50 clips to data/shard_084.pt  (NaN reinits: 0)
+
+[Param 085] niu=0.025, cx=26, cy=67, r=9, Re=72.0
+  clip  10/50  |  4.3s elapsed
+  clip  20/50  |  8.4s elapsed
+  clip  30/50  |  12.5s elapsed
+  clip  40/50  |  16.6s elapsed
+  clip  50/50  |  20.3s elapsed
+  → Saved 50 clips to data/shard_085.pt  (NaN reinits: 0)
+
+[Param 086] niu=0.025, cx=26, cy=72, r=7, Re=56.0
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.4s elapsed
+  clip  30/50  |  12.7s elapsed
+  clip  40/50  |  16.8s elapsed
+  clip  50/50  |  20.6s elapsed
+  → Saved 50 clips to data/shard_086.pt  (NaN reinits: 0)
+
+[Param 087] niu=0.025, cx=26, cy=72, r=9, Re=72.0
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.3s elapsed
+  clip  30/50  |  12.5s elapsed
+  clip  40/50  |  16.7s elapsed
+  clip  50/50  |  20.5s elapsed
+  → Saved 50 clips to data/shard_087.pt  (NaN reinits: 0)
+
+[Param 088] niu=0.025, cx=29, cy=56, r=7, Re=56.0
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.5s elapsed
+  clip  30/50  |  12.6s elapsed
+  clip  40/50  |  16.7s elapsed
+  clip  50/50  |  20.6s elapsed
+  → Saved 50 clips to data/shard_088.pt  (NaN reinits: 0)
+
+[Param 089] niu=0.025, cx=29, cy=56, r=9, Re=72.0
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.4s elapsed
+  clip  30/50  |  12.4s elapsed
+  clip  40/50  |  16.5s elapsed
+  clip  50/50  |  20.6s elapsed
+  → Saved 50 clips to data/shard_089.pt  (NaN reinits: 0)
+
+[Param 090] niu=0.025, cx=29, cy=61, r=7, Re=56.0
+  clip  10/50  |  4.4s elapsed
+  clip  20/50  |  8.5s elapsed
+  clip  30/50  |  12.6s elapsed
+  clip  40/50  |  16.7s elapsed
+  clip  50/50  |  20.7s elapsed
+  → Saved 50 clips to data/shard_090.pt  (NaN reinits: 0)
+
+[Param 091] niu=0.025, cx=29, cy=61, r=9, Re=72.0
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.3s elapsed
+  clip  30/50  |  12.4s elapsed
+  clip  40/50  |  16.5s elapsed
+  clip  50/50  |  20.4s elapsed
+  → Saved 50 clips to data/shard_091.pt  (NaN reinits: 0)
+
+[Param 092] niu=0.025, cx=29, cy=67, r=7, Re=56.0
+  clip  10/50  |  4.3s elapsed
+  clip  20/50  |  8.3s elapsed
+  clip  30/50  |  12.4s elapsed
+  clip  40/50  |  16.5s elapsed
+  clip  50/50  |  20.4s elapsed
+  → Saved 50 clips to data/shard_092.pt  (NaN reinits: 0)
+
+[Param 093] niu=0.025, cx=29, cy=67, r=9, Re=72.0
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.3s elapsed
+  clip  30/50  |  12.4s elapsed
+  clip  40/50  |  16.4s elapsed
+  clip  50/50  |  20.4s elapsed
+  → Saved 50 clips to data/shard_093.pt  (NaN reinits: 0)
+
+[Param 094] niu=0.025, cx=29, cy=72, r=7, Re=56.0
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.3s elapsed
+  clip  30/50  |  12.5s elapsed
+  clip  40/50  |  16.6s elapsed
+  clip  50/50  |  20.6s elapsed
+  → Saved 50 clips to data/shard_094.pt  (NaN reinits: 0)
+
+[Param 095] niu=0.025, cx=29, cy=72, r=9, Re=72.0
+  clip  10/50  |  4.3s elapsed
+  clip  20/50  |  8.5s elapsed
+  clip  30/50  |  12.6s elapsed
+  clip  40/50  |  16.7s elapsed
+  clip  50/50  |  20.7s elapsed
+  → Saved 50 clips to data/shard_095.pt  (NaN reinits: 0)
+
+[Param 096] niu=0.025, cx=32, cy=56, r=7, Re=56.0
+  clip  10/50  |  4.3s elapsed
+  clip  20/50  |  8.5s elapsed
+  clip  30/50  |  12.7s elapsed
+  clip  40/50  |  17.0s elapsed
+  clip  50/50  |  20.8s elapsed
+  → Saved 50 clips to data/shard_096.pt  (NaN reinits: 0)
+
+[Param 097] niu=0.025, cx=32, cy=56, r=9, Re=72.0
+  clip  10/50  |  4.2s elapsed
+  clip  20/50  |  8.4s elapsed
+  clip  30/50  |  12.4s elapsed
+  clip  40/50  |  16.6s elapsed
+  clip  50/50  |  20.3s elapsed
+  → Saved 50 clips to data/shard_097.pt  (NaN reinits: 0)
+
+[Param 098] niu=0.025, cx=32, cy=61, r=7, Re=56.0
+  clip  10/50  |  3.5s elapsed
+  clip  20/50  |  7.0s elapsed
+  clip  30/50  |  10.4s elapsed
+  clip  40/50  |  13.9s elapsed
+  clip  50/50  |  17.1s elapsed
+  → Saved 50 clips to data/shard_098.pt  (NaN reinits: 0)
+
+[Param 099] niu=0.025, cx=32, cy=61, r=9, Re=72.0
+  clip  10/50  |  2.8s elapsed
+  clip  20/50  |  5.6s elapsed
+  clip  30/50  |  8.3s elapsed
+  clip  40/50  |  11.1s elapsed
+  clip  50/50  |  13.8s elapsed
+  → Saved 50 clips to data/shard_099.pt  (NaN reinits: 0)
+
+All done.
+[W 04/17/26 01:30:18.026 3977691] [offline_cache.h:run@187] Lock /home/fzd2816/.cache/taichi/ticache/ticache.lock failed. You can run 'ti cache clean -p /home/fzd2816/.cache/taichi/ticache' and try again.
+[W 04/17/26 01:30:18.251 3977691] [kernel_compilation_manager.cpp:dump@95] Lock /home/fzd2816/.cache/taichi/ticache/ticache.lock failed. Please run 'ti cache clean -p /home/fzd2816/.cache/taichi/ticache' and try again.

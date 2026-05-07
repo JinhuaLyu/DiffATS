@@ -1,0 +1,56 @@
+# v3 (Reaction-Diffusion): 2D sincos positional embedding for the main_patch
+# tokens (320 = 32 spatial blocks x 10 time blocks).  Other 3 token streams
+# remain 1D learned PE.  Patch SVD rank = 16.
+
+# ── Data ─────────────────────────────────────────────────────────────────────
+data_path:      /work/hdd/bgxp/factor_diffusion/tucker_factors/reaction_1d/reaction_1d_train.pt
+test_data_path: /work/hdd/bgxp/factor_diffusion/tucker_factors/reaction_1d/reaction_1d_test.pt
+
+# ── Training schedule ────────────────────────────────────────────────────────
+n_epochs:   1000
+n_steps:    null
+batch_size: 32
+lr:         1.0e-4
+grad_clip:  1.0
+seed:       0
+
+# ── Model ─────────────────────────────────────────────────────────────────────
+hidden_size:  768
+depth:        12
+num_heads:    12
+mlp_ratio:    4.0
+pos_embed_2d: true       # ← 2D sincos PE for main_patch (mirrors images/our_method)
+
+# ── Diffusion ─────────────────────────────────────────────────────────────────
+T_diffusion:    1000
+sample_steps:   250
+noise_schedule: linear
+predict_xstart: true
+
+# ── Optimization features ────────────────────────────────────────────────────
+ema:             false
+ema_rate:        0.9999
+mixed_precision: true
+compile:         true
+
+# ── DataLoader ───────────────────────────────────────────────────────────────
+num_workers:     8
+prefetch_factor: 4
+
+# ── Logging / checkpointing ───────────────────────────────────────────────────
+log_every:          200
+vis_every_epochs:   10
+save_every_epochs:  100
+n_vis:              4
+n_eval:             20
+
+# ── Output ───────────────────────────────────────────────────────────────────
+outdir:        /work/hdd/bgxp/factor_diffusion/our_method_results/reaction_1d/v3
+wandb_project: factor_diffusion
+wandb_run:     v3_reaction1d
+wandb_entity:  null
+wandb_mode:    online
+
+# ── Hardware ──────────────────────────────────────────────────────────────────
+device:  auto
+resume:  null

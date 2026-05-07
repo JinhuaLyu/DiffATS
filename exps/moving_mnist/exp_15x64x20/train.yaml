@@ -1,0 +1,44 @@
+# -- Data ---------------------------------------------------------------------
+shard_dir: "/projects/p32954/jinhua_output/moving_mnist/tucker_data/tucker_g_r15_64_20"
+num_workers: 4
+prefetch_factor: 2
+
+# -- Tucker dimensions (no patchification, direct on TxHxW) -------------------
+T: 20       # temporal frames
+H: 64       # height
+W: 64       # width
+r_T: 15     # temporal rank  -> U_1 has r_T columns  (G dim-0)
+r_W: 20     # width rank     -> U_3 has r_W columns  (G dim-2)
+
+# -- Model architecture --------------------------------------------------------
+hidden_size: 512
+depth: 8
+num_heads: 8
+mlp_ratio: 4.0
+
+# -- Training ------------------------------------------------------------------
+batch_size: 32
+max_steps: null
+max_epochs: 2000
+lr: 1.0e-4
+ema_rate: 0.9999
+grad_clip: 1.0
+seed: 42
+compile: true
+mixed_precision: true
+
+# -- Diffusion -----------------------------------------------------------------
+noise_schedule: "linear"
+diffusion_steps: 1000
+sample_steps: 250
+
+# -- Logging -------------------------------------------------------------------
+log_every: 100
+ckpt_every_epoch: 10
+n_samples: 4
+results_dir: "/projects/p32954/jinhua_output/moving_mnist/exp_15x64x20_output"
+
+# -- Weights & Biases ----------------------------------------------------------
+wandb_project: "factor_diffusion"
+wandb_run_name: "video_tucker_15x64x20"
+wandb_entity: ""

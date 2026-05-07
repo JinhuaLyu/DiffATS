@@ -1,0 +1,90 @@
+=========================================
+Job ID      : 16839945
+Node        : h009
+Started at  : Sat May  2 08:19:59 EDT 2026
+=========================================
+
+[Step 1/2] Generating 10K videos with DDIM-250...
+Device: cuda
+[1/4] Loading checkpoint: /anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Moving_Mnist/k2_fixlr_A100/checkpoints/latest.pt
+    spatial=32x32, hidden=512, layers=12, heads=8, T=1000
+    Loaded  epoch=2000  global_step=1250000
+[2/4] DDIM 250-step generation  (10000 videos, batch=64)...
+    Done in 3315.3s  (331.5 ms/video)
+[3/4] Generated tensor: (10000, 20, 64, 64)  dtype=torch.uint8  min=0  max=255
+[4/4] Saving → /anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Moving_Mnist/k2_fixlr_A100/generated_10k.pt
+    Saved  (0.82 GB)
+Done.
+Generation complete: /anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Moving_Mnist/k2_fixlr_A100/generated_10k.pt
+
+[Step 2/2] Computing FVD...
+Device : cuda
+
+Loading I3D: /anvil/scratch/x-ezhou1/physics_datasets/Experiments/Moving_Mnist/i3d_torchscript.pt
+
+--- Real videos ---
+Loading: /anvil/scratch/x-ezhou1/physics_datasets/data/moving_mnist/moving_mnist_20k_2slow.pt
+  layout=(T, N, H, W) → transposed  shape=(20000, 20, 64, 64)  dtype=torch.uint8  min=0  max=255
+  random 10000 samples (seed=42)
+
+--- Generated videos ---
+Loading: /anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Moving_Mnist/k2_fixlr_A100/generated_10k.pt
+  layout=(N, T, H, W)  shape=(10000, 20, 64, 64)  dtype=torch.uint8  min=0  max=255
+
+Both tensors: (10000, 20, 64, 64)  ✓
+
+[1/3] Extracting real features...
+  I3D feature dim = 400
+  feats     32/10000  elapsed=0.7s
+  feats    672/10000  elapsed=2.3s
+  feats   1312/10000  elapsed=3.3s
+  feats   1952/10000  elapsed=4.3s
+  feats   2592/10000  elapsed=5.2s
+  feats   3232/10000  elapsed=6.2s
+  feats   3872/10000  elapsed=7.2s
+  feats   4512/10000  elapsed=8.1s
+  feats   5152/10000  elapsed=9.1s
+  feats   5792/10000  elapsed=10.1s
+  feats   6432/10000  elapsed=11.1s
+  feats   7072/10000  elapsed=12.0s
+  feats   7712/10000  elapsed=13.0s
+  feats   8352/10000  elapsed=14.0s
+  feats   8992/10000  elapsed=15.0s
+  feats   9632/10000  elapsed=15.9s
+  done  total=16.5s
+
+[2/3] Extracting generated features...
+  I3D feature dim = 400
+  feats     32/10000  elapsed=0.0s
+  feats    672/10000  elapsed=1.0s
+  feats   1312/10000  elapsed=2.0s
+  feats   1952/10000  elapsed=3.0s
+  feats   2592/10000  elapsed=4.0s
+  feats   3232/10000  elapsed=4.9s
+  feats   3872/10000  elapsed=5.9s
+  feats   4512/10000  elapsed=6.9s
+  feats   5152/10000  elapsed=7.9s
+  feats   5792/10000  elapsed=8.8s
+  feats   6432/10000  elapsed=9.8s
+  feats   7072/10000  elapsed=10.8s
+  feats   7712/10000  elapsed=11.8s
+  feats   8352/10000  elapsed=12.7s
+  feats   8992/10000  elapsed=13.7s
+  feats   9632/10000  elapsed=14.7s
+  done  total=16.6s
+
+[3/3] Computing FVD...
+
+=============================================
+  FVD                    = 487.8194
+  ||mu_r - mu_g||^2      = 365.6012
+  tr(Sigma_real)         = 376.6498
+  tr(Sigma_gen)          = 253.2239
+=============================================
+
+Report saved: /anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Moving_Mnist/k2_fixlr_A100/fvd_results/fvd_report.json
+
+=========================================
+FVD report: /anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Moving_Mnist/k2_fixlr_A100/fvd_results/fvd_report.json
+Finished at: Sat May  2 09:16:08 EDT 2026
+=========================================

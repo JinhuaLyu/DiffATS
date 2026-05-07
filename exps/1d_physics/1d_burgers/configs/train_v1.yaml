@@ -1,0 +1,51 @@
+# ── Data ─────────────────────────────────────────────────────────────────────
+data_path:      /work/hdd/bgxp/factor_diffusion/tucker_factors/burgers_1d/burgers_1d_train.pt
+test_data_path: /work/hdd/bgxp/factor_diffusion/tucker_factors/burgers_1d/burgers_1d_test.pt
+
+# ── Training schedule ────────────────────────────────────────────────────────
+n_epochs:   1000
+n_steps:    null
+batch_size: 32
+lr:         1.0e-4
+grad_clip:  1.0
+seed:       0
+
+# ── Model (mirrors images/our_method JointDiT defaults) ──────────────────────
+hidden_size: 768
+depth:       12
+num_heads:   12
+mlp_ratio:   4.0
+
+# ── Diffusion ─────────────────────────────────────────────────────────────────
+T_diffusion:    1000
+sample_steps:   250
+noise_schedule: linear
+predict_xstart: true        # mirrors images/our_method/train.yaml
+
+# ── Optimization features ────────────────────────────────────────────────────
+ema:             false       # mirrors images/our_method (ema: false)
+ema_rate:        0.9999
+mixed_precision: true
+compile:         true        # torch.compile(mode="reduce-overhead")
+
+# ── DataLoader ───────────────────────────────────────────────────────────────
+num_workers:     8
+prefetch_factor: 4
+
+# ── Logging / checkpointing ───────────────────────────────────────────────────
+log_every:          200      # steps  — scalar loss interval
+vis_every_epochs:   10       # epochs — wandb 2D heatmap upload
+save_every_epochs:  100      # epochs — checkpoint + eval RelErr
+n_vis:              4        # samples for wandb visualization
+n_eval:             20       # samples for periodic mean RelErr eval
+
+# ── Output ────────────────────────────────────────────────────────────────────
+outdir:        /work/hdd/bgxp/factor_diffusion/our_method_results/burgers_1d/v2
+wandb_project: factor_diffusion
+wandb_run:     v2_burgers1d_r32
+wandb_entity:  null
+wandb_mode:    online
+
+# ── Hardware ──────────────────────────────────────────────────────────────────
+device:  auto
+resume:  null
