@@ -1,4 +1,4 @@
-# DiffATS — Diffusion in an Aligned Tucker/SVD Basis
+# DiffATS — Diffusion in an Aligned Tensor Space
 
 ![CelebA-HQ samples](assets/celeba_row.png)
 
