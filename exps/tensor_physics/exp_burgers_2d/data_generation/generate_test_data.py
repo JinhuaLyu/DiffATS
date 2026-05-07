@@ -9,7 +9,7 @@ TOTAL_SAMPLES  = 500
 SAMPLES_PER_PT = 100
 BATCH_SIZE     = 10
 DG_MIN, DG_MAX = 1.5, 10.0
-OUTPUT_DIR     = "/anvil/projects/x-eng260004/factor_diffusion/original_data/burgers_2d/test_data"
+OUTPUT_DIR     = "${DATA_ROOT}/original_data/burgers_2d/test_data"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 valid = np.load("valid_configs.npy", allow_pickle=True)

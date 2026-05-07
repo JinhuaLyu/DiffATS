@@ -9,7 +9,7 @@ from tqdm import tqdm
 from DCT_utils import split_clip_into_blocks_3d, zigzag_order_3d
 
 
-TRAIN_DIR  = '/projects/p32954/jinhua_data/burgers_2d'
+TRAIN_DIR  = '${DATA_ROOT}/burgers_2d'
 STATS_PATH = Path('/scratch/bkx8728/burgers_dctdiff_runs/burgers_stats_3d_b5.json')
 
 T_USE     = 200     

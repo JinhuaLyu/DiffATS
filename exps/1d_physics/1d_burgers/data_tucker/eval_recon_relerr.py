@@ -21,8 +21,8 @@ T_TRAJ = 200
 N_BLOCK_X = NX // PATCH_X
 N_BLOCK_T = T_TRAJ // PATCH_T
 
-ORIG_DIR = "/work/hdd/bgxp/factor_diffusion/original_data/burgers_1d"
-FACTOR_DIR = "/work/hdd/bgxp/factor_diffusion/tucker_factors/burgers_1d"
+ORIG_DIR = "${DATA_ROOT}/original_data/burgers_1d"
+FACTOR_DIR = "${DATA_ROOT}/tucker_factors/burgers_1d"
 
 
 def reconstruct_traj_batch(alpha: torch.Tensor, V_hat: torch.Tensor) -> torch.Tensor:

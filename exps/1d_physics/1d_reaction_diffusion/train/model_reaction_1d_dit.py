@@ -28,7 +28,7 @@ import torch
 import torch.nn as nn
 
 # Reuse DiT building blocks from the reference repo
-sys.path.insert(0, "/u/jlyu5/factor_diffusion")
+sys.path.insert(0, "${HOME}/factor_diffusion")
 from video.models.cp_dit import (  # noqa: E402
     TimestepEmbedder, DiTBlock, FinalLayerNorm,
 )

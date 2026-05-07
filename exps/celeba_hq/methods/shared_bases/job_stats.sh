@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=celeba_global_pca_stats
-#SBATCH --account=eng260004-ai
+#SBATCH --account=<ACCOUNT>
 #SBATCH --partition=ai
 #SBATCH --gres=gpu:1
 #SBATCH --nodes=1
@@ -8,18 +8,18 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=32G
 #SBATCH --time=00:30:00
-#SBATCH --output=/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/shared_bases/logs/stats_%j.out
-#SBATCH --error=/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/shared_bases/logs/stats_%j.err
+#SBATCH --output=${DATA_ROOT}/tucker_factors/celeba/shared_bases/logs/stats_%j.out
+#SBATCH --error=${DATA_ROOT}/tucker_factors/celeba/shared_bases/logs/stats_%j.err
 
 set -euo pipefail
 
-mkdir -p /anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/shared_bases/logs
+mkdir -p ${DATA_ROOT}/tucker_factors/celeba/shared_bases/logs
 
 module --force purge
 module load anaconda
 source activate video_factor
 
-cd /home/x-jlyu5/jinhua/DiffATS/exps/celeba_hq/methods/shared_bases
+cd ${REPO_ROOT}/exps/celeba_hq/methods/shared_bases
 
 echo "=== START $(date -Is) ==="
 echo "Job ID: ${SLURM_JOB_ID}"

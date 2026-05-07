@@ -53,7 +53,7 @@ class Reaction1dDataset(Dataset):
 def get_args():
     p = argparse.ArgumentParser()
     p.add_argument('--data_path', type=str,
-        default='/anvil/scratch/x-ezhou1/physics_datasets/data/reaction_1d/reaction_1d_train.pt')
+        default='/anvil/scratch/x-<user>/physics_datasets/data/reaction_1d/reaction_1d_train.pt')
     p.add_argument('--pool_k',      type=int, default=8)
     p.add_argument('--batch_size',  type=int, default=8)
     p.add_argument('--num_workers', type=int, default=4)

@@ -33,8 +33,8 @@ from tqdm import tqdm
 # ---------------------------------------------
 # Config
 # ---------------------------------------------
-SHARD_DIR = "/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/shared_bases"
-OUT_PATH  = "/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/shared_bases/alpha_stats_global_pca_p32_r32.pt"
+SHARD_DIR = "${DATA_ROOT}/tucker_factors/celeba/shared_bases"
+OUT_PATH  = "${DATA_ROOT}/tucker_factors/celeba/shared_bases/alpha_stats_global_pca_p32_r32.pt"
 
 
 def main():

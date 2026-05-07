@@ -10,7 +10,7 @@ import torch
 
 _EXP = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(_EXP, 'train'))
-sys.path.insert(0, '/home/x-jlyu5/jinhua/factor_diffusion/video')
+sys.path.insert(0, '${REPO_ROOT}/video')
 
 from dataset_burgers_2d import BurgersTucker2DDataset, reconstruct_video
 
@@ -22,11 +22,11 @@ def main():
     parser.add_argument('--seeds', type=int, nargs='+', default=[0, 1, 2, 3, 4])
     parser.add_argument('--n_check', type=int, default=8)
     parser.add_argument('--train_data_dir', type=str,
-                        default=('/anvil/projects/x-eng260004/factor_diffusion/'
+                        default=('${DATA_ROOT}/'
                                  'tucker_factors/burgers_2d/'
                                  'tucker_burgers_rT5_rH20_rW20'))
     parser.add_argument('--test_data_dir', type=str,
-                        default=('/anvil/projects/x-eng260004/factor_diffusion/'
+                        default=('${DATA_ROOT}/'
                                  'tucker_factors/burgers_2d/'
                                  'tucker_burgers_rT5_rH20_rW20/test_data'))
     args = parser.parse_args()

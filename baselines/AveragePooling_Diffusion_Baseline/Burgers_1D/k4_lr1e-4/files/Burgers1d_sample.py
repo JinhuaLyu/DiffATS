@@ -12,11 +12,11 @@ from Burgers1d_DiT_Model import TrajDiT1D, GaussianDiffusion
 def get_args():
     p = argparse.ArgumentParser()
     p.add_argument('--test_path', type=str,
-        default='/anvil/projects/x-eng260004/factor_diffusion/pde_samples/1d_burgers/pde_samples_10.pt')
+        default='${DATA_ROOT}/pde_samples/1d_burgers/pde_samples_10.pt')
     p.add_argument('--ckpt_path', type=str,
-        default='/anvil/projects/x-eng260004/factor_diffusion/baseline_checkpoint/average_pooling/Burgers1d_k4_latest.pt')
+        default='${DATA_ROOT}/baseline_checkpoint/average_pooling/Burgers1d_k4_latest.pt')
     p.add_argument('--output_path', type=str,
-        default='/anvil/projects/x-eng260004/factor_diffusion/pde_samples_generated/1d_burgers/AveragePooling/avgpool_burgers1d_generated.pt')
+        default='${DATA_ROOT}/pde_samples_generated/1d_burgers/AveragePooling/avgpool_burgers1d_generated.pt')
     p.add_argument('--pool_k', type=int, default=4)
     p.add_argument('--orig_L', type=int, default=1024)
     p.add_argument('--hidden_dim',     type=int, default=512)

@@ -1,7 +1,7 @@
 import torch
 
 # shard
-data = torch.load('/anvil/scratch/x-ezhou1/physics_datasets/data/karman_vortex_2d/shard_000.pt', 
+data = torch.load('/anvil/scratch/x-<user>/physics_datasets/data/karman_vortex_2d/shard_000.pt', 
                   map_location='cpu')
 print(type(data))
 

@@ -92,7 +92,7 @@ def get_args():
     p = argparse.ArgumentParser(description='Burgers 2D Evaluation')
 
     p.add_argument('--test_dir', type=str,
-        default='/scratch/bgxp/ezhou1/factor_diffusion_proj/data/burgers_2d/test_data')
+        default='${DATA_ROOT}/data/burgers_2d/test_data')
     p.add_argument('--pool_k',            type=int, default=8)
     p.add_argument('--orig_size',         type=int, default=128)
     p.add_argument('--num_test_samples',  type=int, default=500)
@@ -107,7 +107,7 @@ def get_args():
     p.add_argument('--diff_timesteps', type=int, default=1000)
     p.add_argument('--ddim_steps', type=int, default=250)
     p.add_argument('--output_dir', type=str,
-        default='/scratch/bgxp/ezhou1/factor_diffusion_proj/Experiments_Output/Burgers_2D/k8_H200_fixlr')
+        default='${DATA_ROOT}/Experiments_Output/Burgers_2D/k8_H200_fixlr')
 
     return p.parse_args()
 

@@ -63,7 +63,7 @@ class CelebAHQDataset(Dataset):
 def get_args():
     p = argparse.ArgumentParser()
     p.add_argument('--data_dir',    type=str,
-        default='/scratch/bgxp/ezhou1/factor_diffusion_proj/data/all')
+        default='${DATA_ROOT}/data/all')
     p.add_argument('--pool_k',      type=int, default=4)
     p.add_argument('--orig_size',   type=int, default=1024)
     p.add_argument('--batch_size',  type=int, default=4)

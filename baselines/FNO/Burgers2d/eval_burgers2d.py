@@ -122,7 +122,7 @@ def load_model_with_optional_ema(ckpt_path: str, model: nn.Module, use_ema: bool
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Eval FNO burgers checkpoint")
     parser.add_argument("--checkpoint", type=str, required=True)
-    parser.add_argument("--test-dir", type=str, default="/projects/p32954/jinhua_data/burgers_2d_test")
+    parser.add_argument("--test-dir", type=str, default="${DATA_ROOT}/burgers_2d_test")
     parser.add_argument("--use-ema", action="store_true", default=True,
                         help="Load EMA weights (default; pass --no-use-ema to use raw weights)")
     parser.add_argument("--no-use-ema", dest="use_ema", action="store_false")

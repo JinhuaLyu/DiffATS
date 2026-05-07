@@ -141,7 +141,7 @@ def parse_args():
     p.add_argument("--core_path", type=str, required=True,
                    help="Path to FTM-produced core_best.mat (or core_epoch_NNN.mat)")
     p.add_argument("--out_dir", type=str,
-                   default="/projects/p32954/bkx8728/karman_sdift_runs")
+                   default="${DATA_ROOT}/bkx8728/karman_sdift_runs")
     p.add_argument("--data_name", type=str, default="karman_2d")
     p.add_argument("--seed", type=int, default=231)
     p.add_argument("--batch_size", type=int, default=32)

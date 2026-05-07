@@ -48,7 +48,7 @@ from tqdm import tqdm
 # -----------------------------
 # Config
 # -----------------------------
-IMG_DIR = "/anvil/projects/x-eng260004/factor_diffusion/original_data/celeba"
+IMG_DIR = "${DATA_ROOT}/original_data/celeba"
 IMG_SIZE = 1024
 PATCH = 32
 RANK = 32
@@ -59,7 +59,7 @@ REF_SEED = 42
 PCA_OVERSAMPLE = 8  # extra dimensions beyond rank
 PCA_NITER = 2       # power iterations; 1-2 is usually enough here
 
-OUT_DIR = "/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/our_method"
+OUT_DIR = "${DATA_ROOT}/tucker_factors/celeba/our_method"
 os.makedirs(OUT_DIR, exist_ok=True)
 
 # Speed-friendly backend settings

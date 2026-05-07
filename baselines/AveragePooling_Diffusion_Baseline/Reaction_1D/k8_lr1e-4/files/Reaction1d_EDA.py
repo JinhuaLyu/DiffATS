@@ -3,9 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-train_path = '/anvil/scratch/x-ezhou1/physics_datasets/data/reaction_1d/reaction_1d_train.pt'
-test_path  = '/anvil/scratch/x-ezhou1/physics_datasets/data/reaction_1d/reaction_1d_test.pt'
-save_dir   = '/anvil/scratch/x-ezhou1/physics_datasets/Experiments/Reaction_1d'
+train_path = '/anvil/scratch/x-<user>/physics_datasets/data/reaction_1d/reaction_1d_train.pt'
+test_path  = '/anvil/scratch/x-<user>/physics_datasets/data/reaction_1d/reaction_1d_test.pt'
+save_dir   = '/anvil/scratch/x-<user>/physics_datasets/Experiments/Reaction_1d'
 os.makedirs(save_dir, exist_ok=True)
 
 train = torch.load(train_path, map_location='cpu', weights_only=False)

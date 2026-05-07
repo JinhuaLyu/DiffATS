@@ -1,6 +1,6 @@
 """Download bitmind/celeb-a-hq parquet shards and decode to 30,000 PNGs.
 
-Output: /anvil/projects/x-eng260004/factor_diffusion/original_data/celeba/{00000..29999}.png
+Output: ${DATA_ROOT}/original_data/celeba/{00000..29999}.png
 """
 import io
 import os
@@ -14,8 +14,8 @@ from PIL import Image
 
 REPO_ID = "bitmind/celeb-a-hq"
 NUM_SHARDS = 6
-OUT_DIR = Path("/anvil/projects/x-eng260004/factor_diffusion/original_data/celeba")
-CACHE_DIR = Path("/anvil/projects/x-eng260004/factor_diffusion/original_data/_hf_cache")
+OUT_DIR = Path("${DATA_ROOT}/original_data/celeba")
+CACHE_DIR = Path("${DATA_ROOT}/original_data/_hf_cache")
 
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 CACHE_DIR.mkdir(parents=True, exist_ok=True)

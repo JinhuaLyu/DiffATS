@@ -32,17 +32,17 @@ SMOKE_JOB[shared_bases]=16679845;      FULL_JOB[shared_bases]=16781043;      SAM
 SMOKE_JOB[no_alignment]=16679848;      FULL_JOB[no_alignment]=16679849;      SAMPLE_JOB[no_alignment]=16679850
 SMOKE_JOB[data_augmentation]=16679851; FULL_JOB[data_augmentation]=16679852; SAMPLE_JOB[data_augmentation]=16679853
 
-FULL_SCRIPT[our_method]=/home/x-jlyu5/jinhua/DiffATS/exps/celeba_hq/methods/our_method/job_train_full.sh
-FULL_SCRIPT[shared_bases]=/home/x-jlyu5/jinhua/DiffATS/exps/celeba_hq/methods/shared_bases/job_train_full.sh
-FULL_SCRIPT[no_alignment]=/home/x-jlyu5/jinhua/DiffATS/exps/celeba_hq/methods/no_alignment/job_train_full.sh
-FULL_SCRIPT[data_augmentation]=/home/x-jlyu5/jinhua/DiffATS/exps/celeba_hq/methods/data_augmentation/job_train_full.sh
+FULL_SCRIPT[our_method]=${REPO_ROOT}/exps/celeba_hq/methods/our_method/job_train_full.sh
+FULL_SCRIPT[shared_bases]=${REPO_ROOT}/exps/celeba_hq/methods/shared_bases/job_train_full.sh
+FULL_SCRIPT[no_alignment]=${REPO_ROOT}/exps/celeba_hq/methods/no_alignment/job_train_full.sh
+FULL_SCRIPT[data_augmentation]=${REPO_ROOT}/exps/celeba_hq/methods/data_augmentation/job_train_full.sh
 
-SAMPLE_SCRIPT[our_method]=/home/x-jlyu5/jinhua/DiffATS/exps/celeba_hq/methods/our_method/job_sample.sh
-SAMPLE_SCRIPT[shared_bases]=/home/x-jlyu5/jinhua/DiffATS/exps/celeba_hq/methods/shared_bases/job_sample.sh
-SAMPLE_SCRIPT[no_alignment]=/home/x-jlyu5/jinhua/DiffATS/exps/celeba_hq/methods/no_alignment/job_sample.sh
-SAMPLE_SCRIPT[data_augmentation]=/home/x-jlyu5/jinhua/DiffATS/exps/celeba_hq/methods/data_augmentation/job_sample.sh
+SAMPLE_SCRIPT[our_method]=${REPO_ROOT}/exps/celeba_hq/methods/our_method/job_sample.sh
+SAMPLE_SCRIPT[shared_bases]=${REPO_ROOT}/exps/celeba_hq/methods/shared_bases/job_sample.sh
+SAMPLE_SCRIPT[no_alignment]=${REPO_ROOT}/exps/celeba_hq/methods/no_alignment/job_sample.sh
+SAMPLE_SCRIPT[data_augmentation]=${REPO_ROOT}/exps/celeba_hq/methods/data_augmentation/job_sample.sh
 
-ROOT=/anvil/projects/x-eng260004/factor_diffusion/ablation_results
+ROOT=${DATA_ROOT}/ablation_results
 RESULTS_DIR[our_method]=$ROOT/our_method
 RESULTS_DIR[shared_bases]=$ROOT/shared_bases
 RESULTS_DIR[no_alignment]=$ROOT/no_alignment

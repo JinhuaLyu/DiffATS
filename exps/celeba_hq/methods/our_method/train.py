@@ -1063,7 +1063,7 @@ if __name__ == "__main__":
                         help="Choice B: jointly generate alpha and D/V_hat.")
     parser.add_argument("--proc-align", action="store_true", default=False,
                         help="Procrustes-aligned per-image SVD mode.")
-    parser.add_argument("--vhat-stats-path", type=str, default="/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/Exp_p32r32_acceleration/vhat_stats_procrustes_refimg_p32_r32.pt",
+    parser.add_argument("--vhat-stats-path", type=str, default="${DATA_ROOT}/tucker_factors/celeba/Exp_p32r32_acceleration/vhat_stats_procrustes_refimg_p32_r32.pt",
                         help="Path to V_hat normalization stats .pt file {'std': scalar}.")
     parser.add_argument("--wandb_project", type=str, default="myproject")
     parser.add_argument("--wandb-run-name", type=str, default="",
@@ -1076,7 +1076,7 @@ if __name__ == "__main__":
     parser.add_argument("--ortho-augment", action="store_true", default=False,
                         help="Per-image random orthogonal augmentation on (alpha, V_hat).")
     parser.add_argument("--shard-dir", type=str,
-                        default="/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/Exp_p32r32_acceleration/celebahq1024_patchsvd_procrustes_refimg_p32_r32",
+                        default="${DATA_ROOT}/tucker_factors/celeba/Exp_p32r32_acceleration/celebahq1024_patchsvd_procrustes_refimg_p32_r32",
                         help="Directory containing pre-computed shard .pt files")
 
     parser.add_argument("--aux-loss", action="store_true", default=False,
@@ -1093,11 +1093,11 @@ if __name__ == "__main__":
                         help="Use cross-attention conditioning on dictionary tokens")
     parser.add_argument("--dict-path", type=str, default="",
                         help="Path to global dict checkpoint containing D and optional mean")
-    parser.add_argument("--alpha-stats-path", type=str, default="/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/Exp_p32r32_acceleration/alpha_stats_procrustes_refimg_p32_r32.pt",
+    parser.add_argument("--alpha-stats-path", type=str, default="${DATA_ROOT}/tucker_factors/celeba/Exp_p32r32_acceleration/alpha_stats_procrustes_refimg_p32_r32.pt",
                         help="Path to alpha normalization stats")
     parser.add_argument("--norm-std", type=float, default=0.5,
                         help="Fallback scalar normalization std")
-    parser.add_argument("--results_dir", type=str, default="/anvil/projects/x-eng260004/factor_diffusion/ablation_results")
+    parser.add_argument("--results_dir", type=str, default="${DATA_ROOT}/ablation_results")
     parser.add_argument("--resume", type=str, default="",
                         help="Checkpoint path or checkpoint dir to resume from")
 

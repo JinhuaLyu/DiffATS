@@ -18,7 +18,7 @@ import torch
 
 _EXP = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # exp_karman_vortex
 sys.path.insert(0, os.path.join(_EXP, 'train'))
-sys.path.insert(0, '/home/x-jlyu5/jinhua/factor_diffusion/video')
+sys.path.insert(0, '${REPO_ROOT}/video')
 
 from diffusion import create_diffusion
 
@@ -31,14 +31,14 @@ from model_karman_2d_dit import (
 )
 
 
-DEFAULT_TRAIN_DIR = ('/anvil/projects/x-eng260004/factor_diffusion/'
+DEFAULT_TRAIN_DIR = ('${DATA_ROOT}/'
                      'tucker_factors/karman_vortex_2d/'
                      'tucker_karman_rT10_rX128_rY30')
 DEFAULT_TEST_DIR  = os.path.join(DEFAULT_TRAIN_DIR, 'test_data')
-DEFAULT_CKPT      = ('/anvil/projects/x-eng260004/factor_diffusion/'
+DEFAULT_CKPT      = ('${DATA_ROOT}/'
                      'our_method_results/karman_vortex_2d/checkpoints/'
                      'epoch00200_step0062400.pt')
-DEFAULT_OUTDIR    = ('/anvil/projects/x-eng260004/factor_diffusion/'
+DEFAULT_OUTDIR    = ('${DATA_ROOT}/'
                      'our_method_generation/karman_vortex_2d')
 
 

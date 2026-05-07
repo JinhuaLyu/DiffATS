@@ -67,8 +67,8 @@ def _gather_raw(input_dir, prefix, zz_keep):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--train-dir', default='/projects/p32954/jinhua_data/burgers_2d')
-    ap.add_argument('--test-dir',  default='/projects/p32954/jinhua_data/burgers_2d_test')
+    ap.add_argument('--train-dir', default='${DATA_ROOT}/burgers_2d')
+    ap.add_argument('--test-dir',  default='${DATA_ROOT}/burgers_2d_test')
     ap.add_argument('--out-dir',   default='/scratch/bkx8728/burgers_dctdiff_runs/burgers_dct_cache_b5')
     ap.add_argument('--skip-existing', action='store_true')
     args = ap.parse_args()

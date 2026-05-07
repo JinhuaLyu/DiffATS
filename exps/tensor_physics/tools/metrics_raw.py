@@ -19,7 +19,7 @@ import time
 import numpy as np
 import torch
 
-sys.path.insert(0, '/home/x-jlyu5/jinhua/factor_diffusion/video')
+sys.path.insert(0, '${REPO_ROOT}/video')
 
 
 def recon_karman(A, B, G):
@@ -34,7 +34,7 @@ def recon_burgers(A, B, G):
 
 CFG = {
     'burgers': {
-        'raw_test_dir' : '/anvil/projects/x-eng260004/factor_diffusion/original_data/burgers_2d/test_data',
+        'raw_test_dir' : '${DATA_ROOT}/original_data/burgers_2d/test_data',
         'raw_prefix'   : 'test_shard',
         'raw_digits'   : 5,
         'samples_per_shard': 100,
@@ -43,7 +43,7 @@ CFG = {
         'gen_keys'     : ('U1', 'U3', 'G'),
     },
     'karman': {
-        'raw_test_dir' : '/anvil/projects/x-eng260004/factor_diffusion/original_data/karman_vortex_2d/test_data',
+        'raw_test_dir' : '${DATA_ROOT}/original_data/karman_vortex_2d/test_data',
         'raw_prefix'   : 'test_shard',
         'raw_digits'   : 3,
         'samples_per_shard': 50,
@@ -154,7 +154,7 @@ def process(exp, gen_dir, epoch, seeds=(0, 1, 2, 3, 4)):
 
 if __name__ == '__main__':
     import json
-    base = '/anvil/projects/x-eng260004/factor_diffusion/our_method_generation'
+    base = '${DATA_ROOT}/our_method_generation'
     cfgs = [
         ('karman',  f'{base}/karman_vortex_2d',   500),
         ('burgers', f'{base}/burgers_2d',         500),

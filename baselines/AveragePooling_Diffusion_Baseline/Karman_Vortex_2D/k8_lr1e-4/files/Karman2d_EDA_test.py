@@ -1,7 +1,7 @@
 import torch
 import os
 
-test_dir = '/anvil/scratch/x-ezhou1/physics_datasets/data/karman_vortex_2d/test_data'
+test_dir = '/anvil/scratch/x-<user>/physics_datasets/data/karman_vortex_2d/test_data'
 test_files = [f for f in os.listdir(test_dir) if f.endswith('.pt')]
 print("Test files:", test_files)
 

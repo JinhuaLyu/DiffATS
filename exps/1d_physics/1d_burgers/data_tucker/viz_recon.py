@@ -27,9 +27,9 @@ N_BLOCK_X = NX // PATCH_X        # 32
 N_BLOCK_T = T_TRAJ // PATCH_T    # 10
 IC_CHUNK = 32
 
-ORIG_DIR = "/work/hdd/bgxp/factor_diffusion/original_data/burgers_1d"
-FACTOR_DIR = "/work/hdd/bgxp/factor_diffusion/tucker_factors/burgers_1d"
-DEFAULT_OUT_DIR = "/u/jlyu5/factor_diffusion/1d_physics/1d_burgers/test"
+ORIG_DIR = "${DATA_ROOT}/original_data/burgers_1d"
+FACTOR_DIR = "${DATA_ROOT}/tucker_factors/burgers_1d"
+DEFAULT_OUT_DIR = "${HOME}/factor_diffusion/1d_physics/1d_burgers/test"
 
 
 def reconstruct_traj_from_factors(alpha: torch.Tensor, V_hat: torch.Tensor) -> np.ndarray:

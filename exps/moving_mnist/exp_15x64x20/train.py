@@ -9,7 +9,7 @@ Tucker factors per video (G = einsum('ijk,hj->ihk', C, U_2), pre-computed):
 Flat vector: [U_1 | U_3 | G]  dim = T*r_T + W*r_W + r_T*H*r_W
 
 Usage:
-    cd /home/x-jlyu5/jinhua/DiffATS/exps/moving_mnist/exp_15x64x20
+    cd ${REPO_ROOT}/exps/moving_mnist/exp_15x64x20
     python train.py train.yaml
     python train.py train.yaml \\
         --max_steps 10 --batch_size 4 --compile false   # sanity check

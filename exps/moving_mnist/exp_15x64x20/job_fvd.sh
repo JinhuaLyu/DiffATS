@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH -J mm_fvd
-#SBATCH -A eng260004-ai
+#SBATCH -A <ACCOUNT>
 #SBATCH -p ai
 #SBATCH -N 1
 #SBATCH -n 1
@@ -8,8 +8,8 @@
 #SBATCH --mem=32G
 #SBATCH --gres=gpu:1
 #SBATCH -t 00:30:00
-#SBATCH -o /anvil/projects/x-eng260004/factor_diffusion/our_method_generation/moving_mnist/logs/fvd_%j.out
-#SBATCH -e /anvil/projects/x-eng260004/factor_diffusion/our_method_generation/moving_mnist/logs/fvd_%j.err
+#SBATCH -o ${DATA_ROOT}/our_method_generation/moving_mnist/logs/fvd_%j.out
+#SBATCH -e ${DATA_ROOT}/our_method_generation/moving_mnist/logs/fvd_%j.err
 
 # 3-way FVD: real-vs-tucker, tucker-vs-gen, real-vs-gen.
 #
@@ -30,7 +30,7 @@
 
 set -euo pipefail
 
-ROOT=/anvil/projects/x-eng260004/factor_diffusion
+ROOT=${DATA_ROOT}
 : "${REAL:=${ROOT}/original_data/moving_mnist/moving_mnist_20k_2slow.pt}"
 : "${RECON:=${ROOT}/our_method_generation/moving_mnist/moving_mnist_tucker_recon_raw.pt}"
 : "${GEN:=${ROOT}/our_method_generation/moving_mnist/moving_mnist_gen_epoch2000_raw_videos.pt}"

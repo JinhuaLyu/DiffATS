@@ -171,7 +171,7 @@ def get_args():
     )
 
     p.add_argument('--data_path', type=str,
-        default='/anvil/scratch/x-ezhou1/physics_datasets/data/reaction_1d/reaction_1d_train.pt')
+        default='/anvil/scratch/x-<user>/physics_datasets/data/reaction_1d/reaction_1d_train.pt')
     p.add_argument('--pool_k', type=int, default=8)
 
     # model
@@ -189,7 +189,7 @@ def get_args():
 
     # logging & saving
     p.add_argument('--output_dir', type=str,
-        default='/anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Reaction_1D/k8_fixlr')
+        default='/anvil/scratch/x-<user>/physics_datasets/Experiments_Output/Reaction_1D/k8_fixlr')
     p.add_argument('--save_every',          type=int,  default=50)
     p.add_argument('--log_every_steps',     type=int,  default=100)
     p.add_argument('--sample_every_epochs', type=int,  default=10)

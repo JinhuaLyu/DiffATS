@@ -1,6 +1,6 @@
 import numpy as np
 import sys
-sys.path.insert(0, "/home/fzd2816/apebench")
+sys.path.insert(0, "${APEBENCH_ROOT}")
 import exponax as ex
 import matplotlib.pyplot as plt
 import jax.numpy as jnp

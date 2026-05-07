@@ -20,7 +20,7 @@ Output directory:
     ./tucker_g_r{r_T}_{r_H}_{r_W}/  (under this script's directory)
 
 Usage:
-    cd /home/x-jlyu5/jinhua/DiffATS/exps/moving_mnist/data_tucker
+    cd ${REPO_ROOT}/exps/moving_mnist/data_tucker
 
     # rank [15, 64, 20]  ->  G shape (B, 15, 64, 20)
     conda run -n rpy2-env python3 save_tucker_slow_g.py --rank_T 15 --rank_H 64 --rank_W 20
@@ -49,7 +49,7 @@ from tensorly.decomposition import tucker
 from tqdm import tqdm
 
 _DIR         = os.path.dirname(os.path.abspath(__file__))
-DATASET_PATH = "/anvil/projects/x-eng260004/factor_diffusion/original_data/moving_mnist/moving_mnist_20k_5slow.pt"
+DATASET_PATH = "${DATA_ROOT}/original_data/moving_mnist/moving_mnist_20k_5slow.pt"
 SHARD_SIZE   = 500
 REF_SEED     = 42
 

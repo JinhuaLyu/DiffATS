@@ -21,7 +21,7 @@ def parse_args():
     p.add_argument("--core_stats", type=str, required=True,
                    help="core_mean_std.mat from GPSD run (contains global min/max).")
     p.add_argument("--data_root", type=str,
-                   default="/projects/p32954/bkx8728/karman_vortex_2d")
+                   default="${DATA_ROOT}/bkx8728/karman_vortex_2d")
     p.add_argument("--T", type=int, default=201)
     p.add_argument("--H", type=int, default=128)
     p.add_argument("--W", type=int, default=128)

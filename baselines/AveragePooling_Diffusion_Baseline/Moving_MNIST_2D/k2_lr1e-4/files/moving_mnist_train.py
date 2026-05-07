@@ -157,7 +157,7 @@ def get_args():
     )
 
     p.add_argument('--data_path', type=str,
-        default='/scratch/bgxp/ezhou1/factor_diffusion_proj/data/moving_mnist/moving_mnist_20k_2slow.pt')
+        default='${DATA_ROOT}/data/moving_mnist/moving_mnist_20k_2slow.pt')
     p.add_argument('--pool_k', type=int, default=2)
 
     # model
@@ -175,7 +175,7 @@ def get_args():
 
     # logging & saving
     p.add_argument('--output_dir', type=str,
-        default='/scratch/bgxp/ezhou1/factor_diffusion_proj/Experiments_Output/Moving_MNIST/k2_fixlr')
+        default='${DATA_ROOT}/Experiments_Output/Moving_MNIST/k2_fixlr')
     p.add_argument('--save_every',          type=int,  default=50)
     p.add_argument('--log_every_steps',     type=int,  default=100)
     p.add_argument('--sample_every_epochs', type=int,  default=10)

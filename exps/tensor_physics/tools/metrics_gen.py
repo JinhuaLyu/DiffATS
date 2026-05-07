@@ -23,7 +23,7 @@ import time
 import numpy as np
 import torch
 
-sys.path.insert(0, '/home/x-jlyu5/jinhua/factor_diffusion/video')
+sys.path.insert(0, '${REPO_ROOT}/video')
 
 
 def recon_karman(A, B, G):
@@ -51,12 +51,12 @@ def load_gt_factors(exp):
     if exp == 'karman':
         from dataset_karman_2d import KarmanTucker2DDataset
         train = KarmanTucker2DDataset(
-            '/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/'
+            '${DATA_ROOT}/tucker_factors/'
             'karman_vortex_2d/tucker_karman_rT10_rX128_rY30',
             split='all', device='cpu',
         )
         test = KarmanTucker2DDataset(
-            '/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/'
+            '${DATA_ROOT}/tucker_factors/'
             'karman_vortex_2d/tucker_karman_rT10_rX128_rY30/test_data',
             split='all', device='cpu',
             external_stats=train.stats,
@@ -67,12 +67,12 @@ def load_gt_factors(exp):
     else:
         from dataset_burgers_2d import BurgersTucker2DDataset
         train = BurgersTucker2DDataset(
-            '/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/'
+            '${DATA_ROOT}/tucker_factors/'
             'burgers_2d/tucker_burgers_rT5_rH20_rW20',
             split='all', device='cpu',
         )
         test = BurgersTucker2DDataset(
-            '/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/'
+            '${DATA_ROOT}/tucker_factors/'
             'burgers_2d/tucker_burgers_rT5_rH20_rW20/test_data',
             split='all', device='cpu',
             external_stats=train.stats,
@@ -85,11 +85,11 @@ def load_gt_factors(exp):
 
 def process(exp, seed_files):
     if exp == 'karman':
-        sys.path.insert(0, '/home/x-jlyu5/jinhua/factor_diffusion/tensor_physics/exp_karman_vortex/train')
+        sys.path.insert(0, '${REPO_ROOT}/tensor_physics/exp_karman_vortex/train')
         keys = ('U_T', 'U_Y', 'G')
         recon = recon_karman
     else:
-        sys.path.insert(0, '/home/x-jlyu5/jinhua/factor_diffusion/tensor_physics/exp_burgers_2d/train')
+        sys.path.insert(0, '${REPO_ROOT}/tensor_physics/exp_burgers_2d/train')
         keys = ('U1', 'U3', 'G')
         recon = recon_burgers
 
@@ -158,7 +158,7 @@ def main():
     parser.add_argument('--out_json', type=str, default=None)
     args = parser.parse_args()
 
-    base = '/anvil/projects/x-eng260004/factor_diffusion/our_method_generation'
+    base = '${DATA_ROOT}/our_method_generation'
     tag  = f'epoch{args.epoch:05d}'
     dirs = {
         'karman' : f'{base}/karman_vortex_2d',

@@ -3,14 +3,14 @@ import os
 import sys
 import torch
 from collections import defaultdict
-sys.path.insert(0, "/home/fzd2816/apebench")
+sys.path.insert(0, "${APEBENCH_ROOT}")
 import apebench
 
 TOTAL_SAMPLES  = 5000
 SAMPLES_PER_PT = 100
 BATCH_SIZE     = 10
 DG_MIN, DG_MAX = 1.5, 10.0
-OUTPUT_DIR     = "/projects/p32954/jinhua_data/burgers_2d"
+OUTPUT_DIR     = "${DATA_ROOT}/burgers_2d"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # Build lookup table

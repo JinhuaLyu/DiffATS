@@ -437,9 +437,9 @@ def train(args: argparse.Namespace):
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="FNO-2D for the 2D Burgers dataset")
-    parser.add_argument("--data-dir", type=str, default="/projects/p32954/jinhua_data/burgers_2d")
-    parser.add_argument("--test-dir", type=str, default="/projects/p32954/jinhua_data/burgers_2d_test")
-    parser.add_argument("--run-dir", type=str, default="/projects/p32954/bkx8728/burgers_2d_fno_runs")
+    parser.add_argument("--data-dir", type=str, default="${DATA_ROOT}/burgers_2d")
+    parser.add_argument("--test-dir", type=str, default="${DATA_ROOT}/burgers_2d_test")
+    parser.add_argument("--run-dir", type=str, default="${DATA_ROOT}/bkx8728/burgers_2d_fno_runs")
     parser.add_argument("--mixed-precision", type=str, default="no", choices=["no", "fp16", "bf16"])
     parser.add_argument("--t-in", type=int, default=10, help="number of past frames stacked as input channels")
     parser.add_argument("--modes", type=int, default=20)

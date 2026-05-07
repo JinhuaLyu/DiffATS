@@ -17,7 +17,7 @@ Output directory:
     tucker_burgers_rT{r_T}_rH{r_H}_rW{r_W}/
 
 Usage:
-    cd /home/fzd2816/factor_diffusion/tensor_physics/exp_burgers_2d/data_tucker
+    cd ${REPO_ROOT}/tensor_physics/exp_burgers_2d/data_tucker
     conda run -n rpy2-env python3 save_tucker_burgers.py
     conda run -n rpy2-env python3 save_tucker_burgers.py --n_max 5 --n_workers 2
 """
@@ -39,7 +39,7 @@ from tensorly.decomposition import tucker
 from tqdm import tqdm
 
 _DIR         = os.path.dirname(os.path.abspath(__file__))
-_DATA_DIR    = "/projects/p32954/jinhua_data/burgers_2d"
+_DATA_DIR    = "${DATA_ROOT}/burgers_2d"
 SHARD_SIZE   = 100    # physical samples per output shard (→ 2*SHARD_SIZE rows)
 REF_SEED     = 42
 

@@ -15,9 +15,9 @@ def get_args():
     p = argparse.ArgumentParser(description='CelebA-HQ Sampling')
 
     p.add_argument('--checkpoint',    type=str,
-        default='/anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/CelebA_HQ/k4_patch8_fixlr_Epoch878/checkpoints/latest.pt')
+        default='/anvil/scratch/x-<user>/physics_datasets/Experiments_Output/CelebA_HQ/k4_patch8_fixlr_Epoch878/checkpoints/latest.pt')
     p.add_argument('--output_dir',    type=str,
-        default='/anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/CelebA_HQ/k4_patch8_fixlr_Epoch878/samples')
+        default='/anvil/scratch/x-<user>/physics_datasets/Experiments_Output/CelebA_HQ/k4_patch8_fixlr_Epoch878/samples')
 
     # model arch 
     p.add_argument('--pool_k',        type=int, default=4)

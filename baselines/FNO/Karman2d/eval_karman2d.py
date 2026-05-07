@@ -221,7 +221,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Eval FNO-2D on the 2D Karman vortex test set")
     parser.add_argument("--checkpoint", type=str, required=True)
     parser.add_argument("--test-dir", type=str,
-                        default="/projects/p32954/bkx8728/karman_vortex_2d/test_data")
+                        default="${DATA_ROOT}/bkx8728/karman_vortex_2d/test_data")
     parser.add_argument("--mixed-precision", type=str, default="no",
                         choices=["no", "fp16", "bf16"])
     parser.add_argument("--t-in", type=int, default=10)

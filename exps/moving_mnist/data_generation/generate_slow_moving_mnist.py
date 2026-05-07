@@ -179,7 +179,7 @@ def main():
 
     if args.preview:
         orig = torch.from_numpy(
-            np.load("/home/fzd2816/video_factor_diffusion/datasets/"
+            np.load("${HOME}/video_factor_diffusion/datasets/"
                     "moving_mnist/mnist_test_seq.npy")
         ).permute(1, 0, 2, 3)  # (10000, 20, 64, 64)
 

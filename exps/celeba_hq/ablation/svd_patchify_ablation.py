@@ -16,8 +16,8 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-DATA_DIR  = "/work/hdd/bgxp/bkim/CelebA-HQ/celeba_hq_images/all"
-OUT_DIR   = "/home/x-jlyu5/jinhua/DiffATS/exps/celeba_hq/ablation"
+DATA_DIR  = "${DATA_ROOT}/bkim/CelebA-HQ/celeba_hq_images/all"
+OUT_DIR   = "${REPO_ROOT}/exps/celeba_hq/ablation"
 os.makedirs(OUT_DIR, exist_ok=True)
 
 PATCH_SIZE = 32

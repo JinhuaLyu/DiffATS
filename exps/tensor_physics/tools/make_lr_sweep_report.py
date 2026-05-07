@@ -26,14 +26,14 @@ import matplotlib.pyplot as plt
 
 SWEEPS = {
     "karman": {
-        "logs_dir": "/anvil/projects/x-eng260004/factor_diffusion/our_method_results/karman_vortex_2d_lr_sweep/logs",
-        "outdir":   "/anvil/projects/x-eng260004/factor_diffusion/our_method_results/karman_vortex_2d_lr_sweep",
+        "logs_dir": "${DATA_ROOT}/our_method_results/karman_vortex_2d_lr_sweep/logs",
+        "outdir":   "${DATA_ROOT}/our_method_results/karman_vortex_2d_lr_sweep",
         "lrs":      ["1e-2", "5e-3", "1e-3", "5e-4", "5e-5"],
         "time_limit_h": 10.0,
     },
     "burgers": {
-        "logs_dir": "/anvil/projects/x-eng260004/factor_diffusion/our_method_results/burgers_2d_lr_sweep/logs",
-        "outdir":   "/anvil/projects/x-eng260004/factor_diffusion/our_method_results/burgers_2d_lr_sweep",
+        "logs_dir": "${DATA_ROOT}/our_method_results/burgers_2d_lr_sweep/logs",
+        "outdir":   "${DATA_ROOT}/our_method_results/burgers_2d_lr_sweep",
         "lrs":      ["1e-2", "5e-3", "1e-3", "5e-4"],
         "time_limit_h": 5.0,
     },
@@ -178,7 +178,7 @@ def main():
     ap.add_argument(
         "--out_dir",
         type=str,
-        default="/anvil/projects/x-eng260004/factor_diffusion/our_method_results/lr_sweep_report",
+        default="${DATA_ROOT}/our_method_results/lr_sweep_report",
     )
     args = ap.parse_args()
     os.makedirs(args.out_dir, exist_ok=True)

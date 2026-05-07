@@ -83,7 +83,7 @@ def main():
 
     if args.dir is None:
         sub = 'karman_vortex_2d' if args.exp == 'karman' else 'burgers_2d'
-        args.dir = f'/anvil/projects/x-eng260004/factor_diffusion/our_method_generation/{sub}'
+        args.dir = f'${DATA_ROOT}/our_method_generation/{sub}'
 
     tag     = f'epoch{args.epoch:05d}'
     in_path = os.path.join(args.dir, f'{tag}_seed{args.seed}.pt')

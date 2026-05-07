@@ -84,7 +84,7 @@ def get_args():
     p = argparse.ArgumentParser(description='Karman Vortex Evaluation')
 
     p.add_argument('--test_dir', type=str,
-        default='/scratch/bgxp/ezhou1/factor_diffusion_proj/data/karman_vortex_2d/test_data')
+        default='${DATA_ROOT}/data/karman_vortex_2d/test_data')
     p.add_argument('--pool_k',            type=int, default=8)
     p.add_argument('--orig_size',         type=int, default=128)
     p.add_argument('--num_test_samples',  type=int, default=500)
@@ -103,7 +103,7 @@ def get_args():
 
     # output
     p.add_argument('--output_dir', type=str,
-        default='/anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Karman_Vortex_2D/k8_H200_fixlr')
+        default='/anvil/scratch/x-<user>/physics_datasets/Experiments_Output/Karman_Vortex_2D/k8_H200_fixlr')
 
     return p.parse_args()
 

@@ -1,6 +1,6 @@
 import torch
 
-d = torch.load('/scratch/bgxp/ezhou1/factor_diffusion_proj/data/moving_mnist/moving_mnist_20k_2slow.pt', map_location='cpu')
+d = torch.load('${DATA_ROOT}/data/moving_mnist/moving_mnist_20k_2slow.pt', map_location='cpu')
 print('Type:', type(d))
 if isinstance(d, dict):
     for k, v in d.items():

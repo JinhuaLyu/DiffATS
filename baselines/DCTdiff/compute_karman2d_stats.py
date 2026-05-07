@@ -9,7 +9,7 @@ from tqdm import tqdm
 from DCT_utils import split_clip_into_blocks_3d, dct3_block, zigzag_order_3d
 
 
-TRAIN_DIR = '/projects/p32954/bkx8728/karman_vortex_2d'
+TRAIN_DIR = '${DATA_ROOT}/bkx8728/karman_vortex_2d'
 STATS_PATH = Path(__file__).parent / 'karman_stats_3d.json'
 
 T_USE     = 200   

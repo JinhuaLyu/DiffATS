@@ -16,7 +16,7 @@ Usage:
     python generate.py \\
         --ckpt .../epoch2000.pt \\
         --n_videos 10000 --batch_size 64 --mode pt \\
-        --outdir /anvil/projects/x-eng260004/factor_diffusion/our_method_generation/moving_mnist
+        --outdir ${DATA_ROOT}/our_method_generation/moving_mnist
 """
 
 import argparse

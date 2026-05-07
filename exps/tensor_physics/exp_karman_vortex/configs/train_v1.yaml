@@ -1,6 +1,6 @@
 # ── Data ──────────────────────────────────────────────────────────────────────
-data_dir:      /anvil/projects/x-eng260004/factor_diffusion/tucker_factors/karman_vortex_2d/tucker_karman_rT10_rX128_rY30
-test_data_dir: /anvil/projects/x-eng260004/factor_diffusion/tucker_factors/karman_vortex_2d/tucker_karman_rT10_rX128_rY30/test_data
+data_dir:      ${DATA_ROOT}/tucker_factors/karman_vortex_2d/tucker_karman_rT10_rX128_rY30
+test_data_dir: ${DATA_ROOT}/tucker_factors/karman_vortex_2d/tucker_karman_rT10_rX128_rY30/test_data
 n_test:     100                                  # ignored when test_data_dir is set
 
 # ── Training schedule ─────────────────────────────────────────────────────────
@@ -32,8 +32,8 @@ n_frames_vis:   10         # frames per sample in the wandb heatmap grid
 mixed_precision: true
 
 # ── Output ────────────────────────────────────────────────────────────────────
-outdir:          /anvil/projects/x-eng260004/factor_diffusion/our_method_results/karman_vortex_2d
-wandb_project:   factor_diffusion
+outdir:          ${DATA_ROOT}/our_method_results/karman_vortex_2d
+wandb_project: <PROJECT>
 wandb_run:       v1_karman2d_rT10_rX128_rY30
 wandb_entity:    null
 

@@ -32,8 +32,8 @@ from tqdm import tqdm
 # ---------------------------------------------
 # Config
 # ---------------------------------------------
-SHARD_DIR = "/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/our_method"
-OUT_PATH  = "/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/our_method/alpha_stats_procrustes_refimg_p32_r32.pt"
+SHARD_DIR = "${DATA_ROOT}/tucker_factors/celeba/our_method"
+OUT_PATH  = "${DATA_ROOT}/tucker_factors/celeba/our_method/alpha_stats_procrustes_refimg_p32_r32.pt"
 
 def main():
     shard_paths = sorted(glob.glob(os.path.join(

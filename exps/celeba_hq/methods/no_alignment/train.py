@@ -406,15 +406,15 @@ if __name__ == "__main__":
     parser.add_argument("--ema", action="store_true", default=False)
     parser.add_argument("--ortho-augment", action="store_true", default=False)
     parser.add_argument("--shard-dir", type=str,
-                        default="/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/no_alignment")
+                        default="${DATA_ROOT}/tucker_factors/celeba/no_alignment")
     parser.add_argument("--alpha-stats-path", type=str,
-                        default="/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/no_alignment/alpha_stats_no_alignment_p32_r32.pt")
+                        default="${DATA_ROOT}/tucker_factors/celeba/no_alignment/alpha_stats_no_alignment_p32_r32.pt")
     parser.add_argument("--vhat-stats-path", type=str,
-                        default="/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/no_alignment/vhat_stats_no_alignment_p32_r32.pt")
+                        default="${DATA_ROOT}/tucker_factors/celeba/no_alignment/vhat_stats_no_alignment_p32_r32.pt")
     parser.add_argument("--mean-avg-path", type=str,
-                        default="/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/no_alignment/mean_avg_no_alignment_p32_r32.pt")
+                        default="${DATA_ROOT}/tucker_factors/celeba/no_alignment/mean_avg_no_alignment_p32_r32.pt")
     parser.add_argument("--results_dir", type=str,
-                        default="/anvil/projects/x-eng260004/factor_diffusion/ablation_results/no_alignment")
+                        default="${DATA_ROOT}/ablation_results/no_alignment")
     parser.add_argument("--resume", type=str, default="")
     parser.add_argument("--input-size", type=int, nargs=2, default=[2048, 32])
     parser.add_argument("--patch-size", type=int, nargs=2, default=[32, 32])

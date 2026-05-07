@@ -24,7 +24,7 @@ import torch
 
 _EXP = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # 1d_burgers
 sys.path.insert(0, os.path.join(_EXP, "train"))
-sys.path.insert(0, "/u/jlyu5/factor_diffusion/video")
+sys.path.insert(0, "${HOME}/factor_diffusion/video")
 
 from diffusion import create_diffusion                              # noqa: E402
 
@@ -40,15 +40,15 @@ from model_burgers_1d_dit import (                                   # noqa: E40
 )
 
 
-DEFAULT_TRAIN_PATH = ("/work/hdd/bgxp/factor_diffusion/tucker_factors/"
+DEFAULT_TRAIN_PATH = ("${DATA_ROOT}/tucker_factors/"
                       "burgers_1d/burgers_1d_train.pt")
-DEFAULT_TEST_PATH  = ("/work/hdd/bgxp/factor_diffusion/tucker_factors/"
+DEFAULT_TEST_PATH  = ("${DATA_ROOT}/tucker_factors/"
                       "burgers_1d/burgers_1d_test.pt")
-DEFAULT_CKPT_DIR   = ("/work/hdd/bgxp/factor_diffusion/our_method_results/"
+DEFAULT_CKPT_DIR   = ("${DATA_ROOT}/our_method_results/"
                       "burgers_1d/v3/checkpoints")
-DEFAULT_OUTDIR     = ("/work/hdd/bgxp/factor_diffusion/our_method_generation/"
+DEFAULT_OUTDIR     = ("${DATA_ROOT}/our_method_generation/"
                       "burgers_1d")
-DEFAULT_STATS_DIR  = ("/work/hdd/bgxp/factor_diffusion/our_method_results/"
+DEFAULT_STATS_DIR  = ("${DATA_ROOT}/our_method_results/"
                       "burgers_1d/v3/stats")
 
 

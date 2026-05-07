@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=MNIST_k2_fixlr
-#SBATCH --account=bgxp-delta-gpu
+#SBATCH --account=<group>-delta-gpu
 #SBATCH --partition=gpuH200x8
 #SBATCH --gres=gpu:1
 #SBATCH --nodes=1
@@ -8,25 +8,25 @@
 #SBATCH --cpus-per-task=16
 #SBATCH --mem=256G
 #SBATCH --time=48:00:00
-#SBATCH --output=/scratch/bgxp/ezhou1/factor_diffusion_proj/Experiments_Output/Moving_Mnist/k2_fixlr/logs/H200_train_%j.out
-#SBATCH --error=/scratch/bgxp/ezhou1/factor_diffusion_proj/Experiments_Output/Moving_Mnist/k2_fixlr/logs/H200_train_%j.err
+#SBATCH --output=${DATA_ROOT}/Experiments_Output/Moving_Mnist/k2_fixlr/logs/H200_train_%j.out
+#SBATCH --error=${DATA_ROOT}/Experiments_Output/Moving_Mnist/k2_fixlr/logs/H200_train_%j.err
 
 set -euo pipefail
 
-export PATH="/u/ezhou1/.conda/envs/CelebA_cu124/bin:$PATH"
+export PATH="/u/<user>/.conda/envs/CelebA_cu124/bin:$PATH"
 
-OUTPUT_DIR=/scratch/bgxp/ezhou1/factor_diffusion_proj/Experiments_Output/Moving_Mnist/k2_fixlr
+OUTPUT_DIR=${DATA_ROOT}/Experiments_Output/Moving_Mnist/k2_fixlr
 
 mkdir -p ${OUTPUT_DIR}/logs
 mkdir -p ${OUTPUT_DIR}/checkpoints
 
-cd /scratch/bgxp/ezhou1/factor_diffusion_proj/Experiments/Moving_Mnist
+cd ${DATA_ROOT}/Experiments/Moving_Mnist
 
-export WANDB_ENTITY=eleanorz924-northwestern-university
+export WANDB_ENTITY=<WANDB_ENTITY>
 export WANDB_PROJECT=moving_mnist_k2_fixlr
 
-python /scratch/bgxp/ezhou1/factor_diffusion_proj/Experiments/Moving_Mnist/MovingMnist_train_full_preload_H200_fixlr.py \
-    --data_path         /scratch/bgxp/ezhou1/factor_diffusion_proj/data/moving_mnist/moving_mnist_20k_2slow.pt \
+python ${DATA_ROOT}/Experiments/Moving_Mnist/MovingMnist_train_full_preload_H200_fixlr.py \
+    --data_path         ${DATA_ROOT}/data/moving_mnist/moving_mnist_20k_2slow.pt \
     --pool_k            2 \
     --hidden_dim        512 \
     --num_layers        12 \

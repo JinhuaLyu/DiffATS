@@ -169,7 +169,7 @@ def get_args():
 
     # data
     p.add_argument('--shard_dir',            type=str,
-        default='/scratch/bgxp/ezhou1/factor_diffusion_proj/data/burgers_2d')
+        default='${DATA_ROOT}/data/burgers_2d')
     p.add_argument('--pool_k',               type=int,  default=8)
     p.add_argument('--fields',               nargs='+', default=['ux', 'uy'])
     p.add_argument('--total_timesteps_data', type=int,  default=201)
@@ -190,7 +190,7 @@ def get_args():
 
     # logging & saving
     p.add_argument('--output_dir', type=str,
-        default='/scratch/bgxp/ezhou1/factor_diffusion_proj/Experiments_Output/Burgers_2D/k8_H200_fixlr')
+        default='${DATA_ROOT}/Experiments_Output/Burgers_2D/k8_H200_fixlr')
     p.add_argument('--save_every',          type=int,  default=50)
     p.add_argument('--log_every_steps',     type=int,  default=100)
     p.add_argument('--sample_every_epochs', type=int,  default=10)

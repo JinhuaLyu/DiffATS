@@ -50,7 +50,7 @@ class Burgers1dDataset(Dataset):
 def get_args():
     p = argparse.ArgumentParser()
     p.add_argument('--data_path', type=str,
-        default='/scratch/bgxp/ezhou1/factor_diffusion_proj/data/burgers_1d/burgers_1d.pt')
+        default='${DATA_ROOT}/data/burgers_1d/burgers_1d.pt')
     p.add_argument('--pool_k',      type=int, default=4)
     p.add_argument('--batch_size',  type=int, default=8)
     p.add_argument('--num_workers', type=int, default=4)

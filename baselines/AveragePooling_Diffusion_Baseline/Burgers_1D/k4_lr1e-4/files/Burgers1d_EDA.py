@@ -3,9 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-train_path = '/scratch/bgxp/ezhou1/factor_diffusion_proj/data/burgers_1d/burgers_1d.pt'
-test_path  = '/scratch/bgxp/ezhou1/factor_diffusion_proj/data/burgers_1d/burgers_1d_test.pt'
-save_dir   = '/scratch/bgxp/ezhou1/factor_diffusion_proj/Experiments/Burgers_1d'
+train_path = '${DATA_ROOT}/data/burgers_1d/burgers_1d.pt'
+test_path  = '${DATA_ROOT}/data/burgers_1d/burgers_1d_test.pt'
+save_dir   = '${DATA_ROOT}/Experiments/Burgers_1d'
 os.makedirs(save_dir, exist_ok=True)
 
 train = torch.load(train_path, map_location='cpu', weights_only=False)

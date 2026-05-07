@@ -19,7 +19,7 @@ import torch
 
 _EXP = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # exp_burgers_2d
 sys.path.insert(0, os.path.join(_EXP, 'train'))
-sys.path.insert(0, '/home/x-jlyu5/jinhua/factor_diffusion/video')
+sys.path.insert(0, '${REPO_ROOT}/video')
 
 from diffusion import create_diffusion
 
@@ -32,13 +32,13 @@ from model_burgers_2d_dit import (
 )
 
 
-DEFAULT_TRAIN_DIR = ('/anvil/projects/x-eng260004/factor_diffusion/'
+DEFAULT_TRAIN_DIR = ('${DATA_ROOT}/'
                      'tucker_factors/burgers_2d/'
                      'tucker_burgers_rT5_rH20_rW20')
 DEFAULT_TEST_DIR  = os.path.join(DEFAULT_TRAIN_DIR, 'test_data')
-DEFAULT_CKPT_DIR  = ('/anvil/projects/x-eng260004/factor_diffusion/'
+DEFAULT_CKPT_DIR  = ('${DATA_ROOT}/'
                      'our_method_results/burgers_2d/checkpoints')
-DEFAULT_OUTDIR    = ('/anvil/projects/x-eng260004/factor_diffusion/'
+DEFAULT_OUTDIR    = ('${DATA_ROOT}/'
                      'our_method_generation/burgers_2d')
 
 

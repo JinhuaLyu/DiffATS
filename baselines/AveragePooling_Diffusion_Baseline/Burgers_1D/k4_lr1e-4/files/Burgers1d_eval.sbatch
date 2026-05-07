@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --account=eng260004-ai
+#SBATCH --account=<ACCOUNT>
 #SBATCH --partition=ai
 #SBATCH --gres=gpu:1
 #SBATCH --nodes=1
@@ -8,12 +8,12 @@
 #SBATCH --mem=128G
 #SBATCH --time=04:00:00
 #SBATCH --job-name=Burgers1d_k4_eval
-#SBATCH --output=/anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Burgers_1d/k4_fixlr/logs/eval_%j.out
-#SBATCH --error=/anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Burgers_1d/k4_fixlr/logs/eval_%j.err
+#SBATCH --output=/anvil/scratch/x-<user>/physics_datasets/Experiments_Output/Burgers_1d/k4_fixlr/logs/eval_%j.out
+#SBATCH --error=/anvil/scratch/x-<user>/physics_datasets/Experiments_Output/Burgers_1d/k4_fixlr/logs/eval_%j.err
 
 module --force purge
 module load anaconda
-source /anvil/scratch/x-ezhou1/envs/celeba_cu124/bin/activate
+source /anvil/scratch/x-<user>/envs/celeba_cu124/bin/activate
 
 echo "========================================="
 echo "Job ID     : $SLURM_JOB_ID"
@@ -22,10 +22,10 @@ echo "Start time : $(date)"
 echo "========================================="
 
 
-CKPT=/anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Burgers_1d/k4_fixlr/checkpoints/latest.pt
-EVAL_SCRIPT=/anvil/scratch/x-ezhou1/physics_datasets/Experiments/Burgers_1d/Burgers_eval.py
-TEST_DATA=/anvil/scratch/x-ezhou1/physics_datasets/data/burgers_1d/burgers_1d_test.pt
-OUTPUT_DIR=/anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Burgers_1d/k4_fixlr
+CKPT=/anvil/scratch/x-<user>/physics_datasets/Experiments_Output/Burgers_1d/k4_fixlr/checkpoints/latest.pt
+EVAL_SCRIPT=/anvil/scratch/x-<user>/physics_datasets/Experiments/Burgers_1d/Burgers_eval.py
+TEST_DATA=/anvil/scratch/x-<user>/physics_datasets/data/burgers_1d/burgers_1d_test.pt
+OUTPUT_DIR=/anvil/scratch/x-<user>/physics_datasets/Experiments_Output/Burgers_1d/k4_fixlr
 
 mkdir -p "$OUTPUT_DIR"
 

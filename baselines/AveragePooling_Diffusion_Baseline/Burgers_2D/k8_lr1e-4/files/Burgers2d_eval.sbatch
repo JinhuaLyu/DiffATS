@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --account=eng260004-ai
+#SBATCH --account=<ACCOUNT>
 #SBATCH --partition=ai
 #SBATCH --gres=gpu:1
 #SBATCH --nodes=1
@@ -8,21 +8,21 @@
 #SBATCH --mem=128G
 #SBATCH --time=05:00:00
 #SBATCH --job-name=Burgers2d_eval
-#SBATCH --output=/anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Burgers_2D/k8_H200_fixlr/logs/eval_%j.out
-#SBATCH --error=/anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Burgers_2D/k8_H200_fixlr/logs/eval_%j.err
+#SBATCH --output=/anvil/scratch/x-<user>/physics_datasets/Experiments_Output/Burgers_2D/k8_H200_fixlr/logs/eval_%j.out
+#SBATCH --error=/anvil/scratch/x-<user>/physics_datasets/Experiments_Output/Burgers_2D/k8_H200_fixlr/logs/eval_%j.err
 
 module --force purge
 module load anaconda
-source /anvil/scratch/x-ezhou1/envs/celeba_cu124/bin/activate
+source /anvil/scratch/x-<user>/envs/celeba_cu124/bin/activate
 
-OUTPUT_DIR=/anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Burgers_2D/k8_H200_fixlr
+OUTPUT_DIR=/anvil/scratch/x-<user>/physics_datasets/Experiments_Output/Burgers_2D/k8_H200_fixlr
 
 mkdir -p ${OUTPUT_DIR}/logs
 
-cd /anvil/scratch/x-ezhou1/physics_datasets/Experiments/Burgers_2d
+cd /anvil/scratch/x-<user>/physics_datasets/Experiments/Burgers_2d
 
-python /anvil/scratch/x-ezhou1/physics_datasets/Experiments/Burgers_2d/Burgers2d_eval.py \
-    --test_dir          /anvil/scratch/x-ezhou1/physics_datasets/data/burgers_2d/test_data \
+python /anvil/scratch/x-<user>/physics_datasets/Experiments/Burgers_2d/Burgers2d_eval.py \
+    --test_dir          /anvil/scratch/x-<user>/physics_datasets/data/burgers_2d/test_data \
     --pool_k            8 \
     --orig_size         128 \
     --num_test_samples  500 \

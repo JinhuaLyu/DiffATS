@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=celeba_p32r32_preprocess
-#SBATCH --account=eng260004-ai
+#SBATCH --account=<ACCOUNT>
 #SBATCH --partition=ai
 #SBATCH --gres=gpu:1
 #SBATCH --nodes=1
@@ -8,18 +8,18 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64G
 #SBATCH --time=03:00:00
-#SBATCH --output=/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/our_method/logs/preprocess_%j.out
-#SBATCH --error=/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/our_method/logs/preprocess_%j.err
+#SBATCH --output=${DATA_ROOT}/tucker_factors/celeba/our_method/logs/preprocess_%j.out
+#SBATCH --error=${DATA_ROOT}/tucker_factors/celeba/our_method/logs/preprocess_%j.err
 
 set -euo pipefail
 
-mkdir -p /anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/our_method/logs
+mkdir -p ${DATA_ROOT}/tucker_factors/celeba/our_method/logs
 
 module --force purge
 module load anaconda
 source activate video_factor
 
-cd /home/x-jlyu5/jinhua/DiffATS/exps/celeba_hq/methods/our_method
+cd ${REPO_ROOT}/exps/celeba_hq/methods/our_method
 
 echo "=== START $(date -Is) ==="
 echo "Host:    $(hostname)"

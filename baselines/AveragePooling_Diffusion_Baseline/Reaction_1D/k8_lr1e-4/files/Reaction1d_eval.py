@@ -64,7 +64,7 @@ def get_args():
     p = argparse.ArgumentParser(description='1D Reaction-Diffusion Evaluation')
 
     p.add_argument('--test_path', type=str,
-        default='/anvil/scratch/x-ezhou1/physics_datasets/data/reaction_1d/reaction_1d_test.pt')
+        default='/anvil/scratch/x-<user>/physics_datasets/data/reaction_1d/reaction_1d_test.pt')
     p.add_argument('--pool_k',           type=int, default=8)
     p.add_argument('--orig_L',           type=int, default=1024)
     p.add_argument('--num_test_samples', type=int, default=500)
@@ -82,7 +82,7 @@ def get_args():
 
     # output
     p.add_argument('--output_dir', type=str,
-        default='/anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Reaction_1D/k8_fixlr')
+        default='/anvil/scratch/x-<user>/physics_datasets/Experiments_Output/Reaction_1D/k8_fixlr')
 
     return p.parse_args()
 

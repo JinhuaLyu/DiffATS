@@ -35,7 +35,7 @@ import sys
 import torch
 import torch.nn as nn
 
-sys.path.insert(0, '/home/x-jlyu5/jinhua/factor_diffusion/video')
+sys.path.insert(0, '${REPO_ROOT}/video')
 from models.cp_dit import (
     Mlp, modulate,
     TimestepEmbedder, SDPAAttention, DiTBlock, FinalLayerNorm,

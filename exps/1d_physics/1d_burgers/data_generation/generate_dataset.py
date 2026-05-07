@@ -4,11 +4,11 @@ Usage examples
 --------------
     # Smoke test: 50 samples on whatever device JAX picks (CPU or GPU)
     python generate_dataset.py --n_samples 50 --batch_size 50 \
-        --out_path /work/hdd/bgxp/factor_diffusion/original_data/burgers_1d/smoke_test/burgers_1d_smoke.pt
+        --out_path ${DATA_ROOT}/original_data/burgers_1d/smoke_test/burgers_1d_smoke.pt
 
     # Full run: 10000 samples, ν drawn IID uniformly from 9 fixed values.
     python generate_dataset.py --n_samples 10000 --batch_size 200 \
-        --out_path /work/hdd/bgxp/factor_diffusion/original_data/burgers_1d/burgers_1d.pt
+        --out_path ${DATA_ROOT}/original_data/burgers_1d/burgers_1d.pt
 
 Output
 ------

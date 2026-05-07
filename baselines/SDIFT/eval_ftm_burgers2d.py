@@ -36,9 +36,9 @@ def parse_args():
     p.add_argument("--basis_path", type=str, required=True,
                    help="Path to basis_best.pth saved by train_FTM_karman.py")
     p.add_argument("--data_root", type=str,
-                   default="/projects/p32954/jinhua_data/burgers_2d")
+                   default="${DATA_ROOT}/burgers_2d")
     p.add_argument("--out_dir", type=str,
-                   default="/projects/p32954/bkx8728/burgers_sdift_runs/eval_ftm_test")
+                   default="${DATA_ROOT}/bkx8728/burgers_sdift_runs/eval_ftm_test")
     p.add_argument("--T", type=int, default=201)
     p.add_argument("--H", type=int, default=128)
     p.add_argument("--W", type=int, default=128)
@@ -83,7 +83,7 @@ def main():
     u, v, w = get_grid_coords(H=args.H, W=args.W, device=device)
     ind_input = (u, v, w)
 
-    # Test dataset (split='test' uses /projects/p32954/jinhua_data/burgers_2d_test)
+    # Test dataset (split='test' uses ${DATA_ROOT}/burgers_2d_test)
     test_ds = KarmanShardedDataset(args.data_root, split='test',
                                    T=args.T, max_clips=args.max_clips)
     test_loader = build_loader(test_ds, batch_size=args.batch_size,

@@ -28,9 +28,9 @@ Viscosity is sampled IID with equal probability from
 ### Smoke test (CPU, ~1 minute for 4 samples)
 ```bash
 module load python/miniforge3_pytorch/2.11.0
-PYTHONPATH=/u/jlyu5/.local/lib/python3.12/site-packages \
+PYTHONPATH=${SITE_PACKAGES} \
   python generate_dataset.py --n_samples 4 --batch_size 4 \
-    --out_path /work/hdd/bgxp/factor_diffusion/original_data/burgers_1d/smoke_test/burgers_1d_tiny.pt
+    --out_path ${DATA_ROOT}/original_data/burgers_1d/smoke_test/burgers_1d_tiny.pt
 ```
 
 ### Full run (GPU, ~30 min for 10000 samples)
@@ -39,7 +39,7 @@ sbatch submit_h200.sh
 ```
 
 The SLURM script auto-installs `jax[cuda12]==0.10.0` to user site-packages on
-first run. Account `bgxp-dtai-gh`, partition `ghx4`, 1 GH200, 1 hour wall time.
+first run. Account `<ACCOUNT>`, partition `ghx4`, 1 GH200, 1 hour wall time.
 
 ### Customize
 Edit `submit_h200.sh` to change `N_SAMPLES`, `BATCH_SIZE`, `SEED`, `OUT_PATH`,
@@ -49,7 +49,7 @@ running interactively.
 ## Loading the dataset
 ```python
 import torch
-d = torch.load("/work/hdd/bgxp/factor_diffusion/original_data/burgers_1d/burgers_1d.pt",
+d = torch.load("${DATA_ROOT}/original_data/burgers_1d/burgers_1d.pt",
                weights_only=False)
 trajectories = d["tensor"]   # (10000, 201, 1024)
 nu           = d["nu"]       # (10000,)

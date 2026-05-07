@@ -21,15 +21,15 @@ POLL_S=${POLL_S:-900}   # 15 min
 LIMIT_S=${LIMIT_S:-3300}  # ~55 min so Monitor 1h timeout doesn't kill mid-step
 
 USER_NAME=$(whoami)
-ROOT_OUT=/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba
+ROOT_OUT=${DATA_ROOT}/tucker_factors/celeba
 
 declare -A PRE_NAME STATS_NAME PRE_SCRIPT STATS_SCRIPT OUT_DIR SHARD_GLOB STATS_FILES
 
 # our_method
 PRE_NAME[our_method]=celeba_p32r32_preprocess
 STATS_NAME[our_method]=celeba_p32r32_stats
-PRE_SCRIPT[our_method]=/home/x-jlyu5/jinhua/DiffATS/exps/celeba_hq/methods/our_method/job_preprocess.sh
-STATS_SCRIPT[our_method]=/home/x-jlyu5/jinhua/DiffATS/exps/celeba_hq/methods/our_method/job_stats.sh
+PRE_SCRIPT[our_method]=${REPO_ROOT}/exps/celeba_hq/methods/our_method/job_preprocess.sh
+STATS_SCRIPT[our_method]=${REPO_ROOT}/exps/celeba_hq/methods/our_method/job_stats.sh
 OUT_DIR[our_method]=$ROOT_OUT/our_method
 SHARD_GLOB[our_method]="celebahq*procrustes_refimg*shard_*.pt"
 STATS_FILES[our_method]="alpha_stats_procrustes_refimg_p32_r32.pt vhat_stats_procrustes_refimg_p32_r32.pt"
@@ -37,8 +37,8 @@ STATS_FILES[our_method]="alpha_stats_procrustes_refimg_p32_r32.pt vhat_stats_pro
 # shared_bases
 PRE_NAME[shared_bases]=celeba_global_pca_preprocess
 STATS_NAME[shared_bases]=celeba_global_pca_stats
-PRE_SCRIPT[shared_bases]=/home/x-jlyu5/jinhua/DiffATS/exps/celeba_hq/methods/shared_bases/job_preprocess.sh
-STATS_SCRIPT[shared_bases]=/home/x-jlyu5/jinhua/DiffATS/exps/celeba_hq/methods/shared_bases/job_stats.sh
+PRE_SCRIPT[shared_bases]=${REPO_ROOT}/exps/celeba_hq/methods/shared_bases/job_preprocess.sh
+STATS_SCRIPT[shared_bases]=${REPO_ROOT}/exps/celeba_hq/methods/shared_bases/job_stats.sh
 OUT_DIR[shared_bases]=$ROOT_OUT/shared_bases
 SHARD_GLOB[shared_bases]="celebahq*global_pca*shard_*.pt"
 STATS_FILES[shared_bases]="alpha_stats_global_pca_p32_r32.pt"
@@ -46,8 +46,8 @@ STATS_FILES[shared_bases]="alpha_stats_global_pca_p32_r32.pt"
 # no_alignment
 PRE_NAME[no_alignment]=celeba_no_align_preprocess
 STATS_NAME[no_alignment]=celeba_no_align_stats
-PRE_SCRIPT[no_alignment]=/home/x-jlyu5/jinhua/DiffATS/exps/celeba_hq/methods/no_alignment/job_preprocess.sh
-STATS_SCRIPT[no_alignment]=/home/x-jlyu5/jinhua/DiffATS/exps/celeba_hq/methods/no_alignment/job_stats.sh
+PRE_SCRIPT[no_alignment]=${REPO_ROOT}/exps/celeba_hq/methods/no_alignment/job_preprocess.sh
+STATS_SCRIPT[no_alignment]=${REPO_ROOT}/exps/celeba_hq/methods/no_alignment/job_stats.sh
 OUT_DIR[no_alignment]=$ROOT_OUT/no_alignment
 SHARD_GLOB[no_alignment]="celebahq*no_alignment*shard_*.pt"
 STATS_FILES[no_alignment]="alpha_stats_no_alignment_p32_r32.pt vhat_stats_no_alignment_p32_r32.pt"

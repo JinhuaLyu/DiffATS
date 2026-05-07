@@ -2,10 +2,10 @@
 method: "data_augmentation"      # no_alignment data + per-step random Q rotation
 
 # -- Data (same shards as no_alignment) ---------------------------------------
-shard_dir:        "/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/no_alignment"
-alpha_stats_path: "/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/no_alignment/alpha_stats_no_alignment_p32_r32.pt"
-vhat_stats_path:  "/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/no_alignment/vhat_stats_no_alignment_p32_r32.pt"
-mean_avg_path:    "/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/no_alignment/mean_avg_no_alignment_p32_r32.pt"
+shard_dir:        "${DATA_ROOT}/tucker_factors/celeba/no_alignment"
+alpha_stats_path: "${DATA_ROOT}/tucker_factors/celeba/no_alignment/alpha_stats_no_alignment_p32_r32.pt"
+vhat_stats_path:  "${DATA_ROOT}/tucker_factors/celeba/no_alignment/vhat_stats_no_alignment_p32_r32.pt"
+mean_avg_path:    "${DATA_ROOT}/tucker_factors/celeba/no_alignment/mean_avg_no_alignment_p32_r32.pt"
 num_workers:     8
 prefetch_factor: 4
 
@@ -44,12 +44,12 @@ learn_sigma:     false
 # -- Logging & checkpointing (mirrors our_method) -----------------------------
 log_every:        100
 ckpt_every_epoch: 11
-results_dir: "/anvil/projects/x-eng260004/factor_diffusion/ablation_results/data_augmentation"
+results_dir: "${DATA_ROOT}/ablation_results/data_augmentation"
 
 # -- Resume --------------------------------------------------------------------
 resume: ""
 
 # -- Weights & Biases (project mirrors our_method; run_name method-specific) --
-wandb_project:  "ablation_study"
+wandb_project: "<PROJECT>"
 wandb_run_name: "data_augmentation"
 wandb_entity:   ""

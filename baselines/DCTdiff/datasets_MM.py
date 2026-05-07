@@ -111,7 +111,7 @@ class MovingMNIST(DatasetFactory):
 
     Args:
         data_path: path to the .pt file, e.g.
-            /scratch/bgxp/factor_diffusion/original_data/moving_mnist/moving_mnist_20k_2slow.pt
+            ${DATA_ROOT}/factor_diffusion/original_data/moving_mnist/moving_mnist_20k_2slow.pt
         resolution: frame size in pixels (must equal H=W in the file)
         tokens: (resolution // block_sz) ** 2
         low_freqs: number of zigzag DCT coefficients to keep per block

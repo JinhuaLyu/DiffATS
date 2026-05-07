@@ -1,7 +1,7 @@
 import numpy as np
 import itertools
 import sys
-sys.path.insert(0, "/home/fzd2816/apebench")
+sys.path.insert(0, "${APEBENCH_ROOT}")
 import apebench
 
 TUCKER_RANK = [5, 20, 20]

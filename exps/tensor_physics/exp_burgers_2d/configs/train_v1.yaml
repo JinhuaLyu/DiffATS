@@ -1,6 +1,6 @@
 # ── Data ──────────────────────────────────────────────────────────────────────
-data_dir:      /anvil/projects/x-eng260004/factor_diffusion/tucker_factors/burgers_2d/tucker_burgers_rT5_rH20_rW20
-test_data_dir: /anvil/projects/x-eng260004/factor_diffusion/tucker_factors/burgers_2d/tucker_burgers_rT5_rH20_rW20/test_data
+data_dir:      ${DATA_ROOT}/tucker_factors/burgers_2d/tucker_burgers_rT5_rH20_rW20
+test_data_dir: ${DATA_ROOT}/tucker_factors/burgers_2d/tucker_burgers_rT5_rH20_rW20/test_data
 n_test:     100                                  # ignored when test_data_dir is set
 
 # ── Training schedule ─────────────────────────────────────────────────────────
@@ -31,8 +31,8 @@ n_vis:          4
 mixed_precision: true
 
 # ── Output ────────────────────────────────────────────────────────────────────
-outdir:          /anvil/projects/x-eng260004/factor_diffusion/our_method_results/burgers_2d
-wandb_project:   factor_diffusion
+outdir:          ${DATA_ROOT}/our_method_results/burgers_2d
+wandb_project: <PROJECT>
 wandb_run:       v1_burgers2d_rT5
 wandb_entity:    null
 

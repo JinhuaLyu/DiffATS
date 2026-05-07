@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=Karman_Avgpool_k8_H200_fixlr
-#SBATCH --account=bgxp-delta-gpu
+#SBATCH --account=<group>-delta-gpu
 #SBATCH --partition=gpuH200x8
 #SBATCH --gres=gpu:1
 #SBATCH --nodes=1
@@ -8,25 +8,25 @@
 #SBATCH --cpus-per-task=16
 #SBATCH --mem=512G
 #SBATCH --time=08:00:00
-#SBATCH --output=/scratch/bgxp/ezhou1/factor_diffusion_proj/Experiments_Output/Karman_Vortex_2D/k8_H200_fixlr/logs/fixlr_train_%j.out
-#SBATCH --error=/scratch/bgxp/ezhou1/factor_diffusion_proj/Experiments_Output/Karman_Vortex_2D/k8_H200_fixlr/logs/fixlr_train_%j.err
+#SBATCH --output=${DATA_ROOT}/Experiments_Output/Karman_Vortex_2D/k8_H200_fixlr/logs/fixlr_train_%j.out
+#SBATCH --error=${DATA_ROOT}/Experiments_Output/Karman_Vortex_2D/k8_H200_fixlr/logs/fixlr_train_%j.err
 
 set -euo pipefail
 
-export PATH="/u/ezhou1/.conda/envs/CelebA_cu124/bin:$PATH"
+export PATH="/u/<user>/.conda/envs/CelebA_cu124/bin:$PATH"
 
-OUTPUT_DIR=/scratch/bgxp/ezhou1/factor_diffusion_proj/Experiments_Output/Karman_Vortex_2D/k8_H200_fixlr
+OUTPUT_DIR=${DATA_ROOT}/Experiments_Output/Karman_Vortex_2D/k8_H200_fixlr
 
 mkdir -p ${OUTPUT_DIR}/logs
 mkdir -p ${OUTPUT_DIR}/checkpoints
 
-cd /scratch/bgxp/ezhou1/factor_diffusion_proj/Experiments/Karman_Vortex_2d
+cd ${DATA_ROOT}/Experiments/Karman_Vortex_2d
 
-export WANDB_ENTITY=eleanorz924-northwestern-university
+export WANDB_ENTITY=<WANDB_ENTITY>
 export WANDB_PROJECT=karman2d_avgpool_k8_lr2e-4_H200_fixlr
 
-python /scratch/bgxp/ezhou1/factor_diffusion_proj/Experiments/Karman_Vortex_2d/Karman_train_full_preload_H200_fixlr.py \
-    --shard_dir             /scratch/bgxp/ezhou1/factor_diffusion_proj/data/karman_vortex_2d \
+python ${DATA_ROOT}/Experiments/Karman_Vortex_2d/Karman_train_full_preload_H200_fixlr.py \
+    --shard_dir             ${DATA_ROOT}/data/karman_vortex_2d \
     --pool_k                8 \
     --total_timesteps_data  201 \
     --samples_per_shard     50 \

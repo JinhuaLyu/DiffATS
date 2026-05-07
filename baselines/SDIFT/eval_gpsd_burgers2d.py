@@ -142,7 +142,7 @@ def parse_args():
     p.add_argument("--core_path", required=True,
                    help="FTM core_best.mat — used only to compute DC offset")
     p.add_argument("--data_root",
-                   default="/projects/p32954/jinhua_data/burgers_2d")
+                   default="${DATA_ROOT}/burgers_2d")
     p.add_argument("--out_dir",
                    default="/projects/e30514/bkx8728/burgers_sdift_runs/eval_cond_t0")
     # Geometry

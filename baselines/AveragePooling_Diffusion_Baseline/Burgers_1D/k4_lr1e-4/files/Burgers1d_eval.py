@@ -64,7 +64,7 @@ def get_args():
     p = argparse.ArgumentParser(description='1D Burgers Evaluation')
 
     p.add_argument('--test_path', type=str,
-        default='/scratch/bgxp/ezhou1/factor_diffusion_proj/data/burgers_1d/burgers_1d_test.pt')
+        default='${DATA_ROOT}/data/burgers_1d/burgers_1d_test.pt')
     p.add_argument('--pool_k',           type=int, default=4)
     p.add_argument('--orig_L',           type=int, default=1024)
     p.add_argument('--num_test_samples', type=int, default=500)
@@ -81,7 +81,7 @@ def get_args():
     p.add_argument('--ddim_steps', type=int, default=250)
 
     p.add_argument('--output_dir', type=str,
-        default='/scratch/bgxp/ezhou1/factor_diffusion_proj/Experiments_Output/Burgers_1D/k4_fixlr')
+        default='${DATA_ROOT}/Experiments_Output/Burgers_1D/k4_fixlr')
 
     return p.parse_args()
 

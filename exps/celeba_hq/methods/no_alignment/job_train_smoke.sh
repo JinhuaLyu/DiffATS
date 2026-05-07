@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=train_no_alignment_smoke
-#SBATCH --account=eng260004-ai
+#SBATCH --account=<ACCOUNT>
 #SBATCH --partition=ai
 #SBATCH --gres=gpu:1
 #SBATCH --nodes=1
@@ -8,19 +8,17 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=128G
 #SBATCH --time=01:00:00
-#SBATCH --output=/anvil/projects/x-eng260004/factor_diffusion/ablation_results/no_alignment/logs/smoke_%j.out
-#SBATCH --error=/anvil/projects/x-eng260004/factor_diffusion/ablation_results/no_alignment/logs/smoke_%j.err
-#SBATCH --mail-user=jinhualyu2024@gmail.com
-#SBATCH --mail-type=END,FAIL
+#SBATCH --output=${DATA_ROOT}/ablation_results/no_alignment/logs/smoke_%j.out
+#SBATCH --error=${DATA_ROOT}/ablation_results/no_alignment/logs/smoke_%j.err
 
 set -euo pipefail
-mkdir -p /anvil/projects/x-eng260004/factor_diffusion/ablation_results/no_alignment/logs
+mkdir -p ${DATA_ROOT}/ablation_results/no_alignment/logs
 
 module --force purge
 module load anaconda
 source activate video_factor
 
-cd /home/x-jlyu5/jinhua/DiffATS/exps/celeba_hq/methods/no_alignment
+cd ${REPO_ROOT}/exps/celeba_hq/methods/no_alignment
 
 echo "=== START $(date -Is) ==="
 echo "Host: $(hostname)  Job: ${SLURM_JOB_ID}"

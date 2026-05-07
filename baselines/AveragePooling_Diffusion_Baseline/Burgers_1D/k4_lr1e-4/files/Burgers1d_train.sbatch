@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --account=eng260004-ai
+#SBATCH --account=<ACCOUNT>
 #SBATCH --partition=ai
 #SBATCH --gres=gpu:1
 #SBATCH --nodes=1
@@ -8,25 +8,25 @@
 #SBATCH --mem=64G
 #SBATCH --time=06:00:00
 #SBATCH --job-name=Burgers1d_k4_train
-#SBATCH --output=/anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Burgers_1d/train_%j.out
+#SBATCH --output=/anvil/scratch/x-<user>/physics_datasets/Experiments_Output/Burgers_1d/train_%j.out
 
 
 module --force purge
 module load anaconda
-source /anvil/scratch/x-ezhou1/envs/celeba_cu124/bin/activate
+source /anvil/scratch/x-<user>/envs/celeba_cu124/bin/activate
 
-OUTPUT_DIR=/anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Burgers_1d
+OUTPUT_DIR=/anvil/scratch/x-<user>/physics_datasets/Experiments_Output/Burgers_1d
 
 mkdir -p ${OUTPUT_DIR}/logs
 mkdir -p ${OUTPUT_DIR}/checkpoints
 
-cd /anvil/scratch/x-ezhou1/physics_datasets/Experiments/Burgers_1d
+cd /anvil/scratch/x-<user>/physics_datasets/Experiments/Burgers_1d
 
-export WANDB_ENTITY=eleanorz924-northwestern-university
+export WANDB_ENTITY=<WANDB_ENTITY>
 export WANDB_PROJECT=burgers1d_k4_fixlr_anvil
 
-python /anvil/scratch/x-ezhou1/physics_datasets/Experiments/Burgers_1d/Burgers_train.py \
-    --data_path         /anvil/scratch/x-ezhou1/physics_datasets/data/burgers_1d/burgers_1d.pt \
+python /anvil/scratch/x-<user>/physics_datasets/Experiments/Burgers_1d/Burgers_train.py \
+    --data_path         /anvil/scratch/x-<user>/physics_datasets/data/burgers_1d/burgers_1d.pt \
     --pool_k            4 \
     --hidden_dim        512 \
     --num_layers        12 \

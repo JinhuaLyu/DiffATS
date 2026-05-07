@@ -32,7 +32,7 @@ from tqdm import tqdm
 
 # ── Repo paths ─────────────────────────────────────────────────────────────
 _EXP = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, "/u/jlyu5/factor_diffusion/video")
+sys.path.insert(0, "${HOME}/factor_diffusion/video")
 sys.path.insert(0, _EXP)
 
 from diffusion import create_diffusion             # noqa: E402
@@ -345,8 +345,8 @@ def main():
     cli = parser.parse_args()
 
     defaults = dict(
-        data_path         = "/work/hdd/bgxp/factor_diffusion/tucker_factors/reaction_1d/reaction_1d_train.pt",
-        test_data_path    = "/work/hdd/bgxp/factor_diffusion/tucker_factors/reaction_1d/reaction_1d_test.pt",
+        data_path         = "${DATA_ROOT}/tucker_factors/reaction_1d/reaction_1d_train.pt",
+        test_data_path    = "${DATA_ROOT}/tucker_factors/reaction_1d/reaction_1d_test.pt",
         batch_size        = 32,
         lr                = 1e-4,
         n_epochs          = 500,
@@ -372,8 +372,8 @@ def main():
         compile           = True,
         num_workers       = 8,
         prefetch_factor   = 4,
-        outdir            = "/work/hdd/bgxp/factor_diffusion/our_method_results/reaction_1d/v3",
-        wandb_project     = "factor_diffusion",
+        outdir            = "${DATA_ROOT}/our_method_results/reaction_1d/v3",
+        wandb_project     = "<PROJECT>",
         wandb_run         = "v3_reaction1d",
         wandb_entity      = None,
         wandb_mode        = "online",

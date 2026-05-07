@@ -34,10 +34,10 @@ import torch
 
 CONFIGS = {
     'burgers': {
-        'tucker_train_dir': '/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/burgers_2d/tucker_burgers_rT5_rH20_rW20',
-        'tucker_test_dir':  '/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/burgers_2d/tucker_burgers_rT5_rH20_rW20/test_data',
-        'raw_train_dir':    '/anvil/projects/x-eng260004/factor_diffusion/original_data/burgers_2d',
-        'raw_test_dir':     '/anvil/projects/x-eng260004/factor_diffusion/original_data/burgers_2d/test_data',
+        'tucker_train_dir': '${DATA_ROOT}/tucker_factors/burgers_2d/tucker_burgers_rT5_rH20_rW20',
+        'tucker_test_dir':  '${DATA_ROOT}/tucker_factors/burgers_2d/tucker_burgers_rT5_rH20_rW20/test_data',
+        'raw_train_dir':    '${DATA_ROOT}/original_data/burgers_2d',
+        'raw_test_dir':     '${DATA_ROOT}/original_data/burgers_2d/test_data',
         'raw_prefix_train': 'shard',           # → shard_00000.pt
         'raw_prefix_test':  'test_shard',      # → test_shard_00000.pt
         'raw_digits':       5,
@@ -45,10 +45,10 @@ CONFIGS = {
         'has_two_fields':   True,              # ux (even sample_idx) + uy (odd)
     },
     'karman': {
-        'tucker_train_dir': '/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/karman_vortex_2d/tucker_karman_rT10_rX128_rY30',
-        'tucker_test_dir':  '/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/karman_vortex_2d/tucker_karman_rT10_rX128_rY30/test_data',
-        'raw_train_dir':    '/anvil/projects/x-eng260004/factor_diffusion/original_data/karman_vortex_2d',
-        'raw_test_dir':     '/anvil/projects/x-eng260004/factor_diffusion/original_data/karman_vortex_2d/test_data',
+        'tucker_train_dir': '${DATA_ROOT}/tucker_factors/karman_vortex_2d/tucker_karman_rT10_rX128_rY30',
+        'tucker_test_dir':  '${DATA_ROOT}/tucker_factors/karman_vortex_2d/tucker_karman_rT10_rX128_rY30/test_data',
+        'raw_train_dir':    '${DATA_ROOT}/original_data/karman_vortex_2d',
+        'raw_test_dir':     '${DATA_ROOT}/original_data/karman_vortex_2d/test_data',
         'raw_prefix_train': 'shard',
         'raw_prefix_test':  'test_shard',
         'raw_digits':       3,
@@ -241,7 +241,7 @@ def _tucker_hooi_fast(T, rank, n_iter_max=50, tol=1e-6):
 def evaluate_mnist(n_samples: int = 100,
                     rank=(15, 64, 20),
                     seed: int = 0,
-                    raw_path: str = '/anvil/projects/x-eng260004/factor_diffusion/original_data/moving_mnist/moving_mnist_20k_2slow.pt'):
+                    raw_path: str = '${DATA_ROOT}/original_data/moving_mnist/moving_mnist_20k_2slow.pt'):
     """On-the-fly Tucker HOOI on random videos (no pre-saved factors)."""
     print(f'[mnist] loading {raw_path} ...', flush=True)
     raw = torch.load(raw_path, map_location='cpu', weights_only=False)

@@ -226,7 +226,7 @@ def reconstruct_traj(alpha: torch.Tensor, V_hat: torch.Tensor) -> torch.Tensor:
 if __name__ == "__main__":
     import sys
     p = sys.argv[1] if len(sys.argv) > 1 else \
-        "/work/hdd/bgxp/factor_diffusion/tucker_factors/burgers_1d/burgers_1d_train.pt"
+        "${DATA_ROOT}/tucker_factors/burgers_1d/burgers_1d_train.pt"
     ds = BurgersFactor1DDataset(p, split="all")
     s = ds[0]
     for k, v in s.items():

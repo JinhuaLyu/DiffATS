@@ -101,7 +101,7 @@ def main():
     p.add_argument('--n',        type=int, default=10000)
     p.add_argument('--batch',    type=int, default=16)
     p.add_argument('--i3d',      type=str,
-                   default='/home/x-jlyu5/.cache/fvd/i3d_torchscript.pt')
+                   default='${HOME}/.cache/fvd/i3d_torchscript.pt')
     p.add_argument('--real_key', type=str, default='videos',
                    help='Dict key if --real is a dict .pt. Ignored for bare tensors.')
     p.add_argument('--gen_key',  type=str, default='videos')

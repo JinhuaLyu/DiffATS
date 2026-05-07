@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=metrics
-#SBATCH --account=eng260004-ai
+#SBATCH --account=<ACCOUNT>
 #SBATCH --partition=ai
 #SBATCH --gres=gpu:1
 #SBATCH --nodes=1
@@ -8,15 +8,13 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=128G
 #SBATCH --time=03:00:00
-#SBATCH --output=/anvil/projects/x-eng260004/factor_diffusion/ablation_results/logs/metrics_%j.out
-#SBATCH --error=/anvil/projects/x-eng260004/factor_diffusion/ablation_results/logs/metrics_%j.err
-#SBATCH --mail-user=jinhualyu2024@gmail.com
-#SBATCH --mail-type=END,FAIL
+#SBATCH --output=${DATA_ROOT}/ablation_results/logs/metrics_%j.out
+#SBATCH --error=${DATA_ROOT}/ablation_results/logs/metrics_%j.err
 
 set -euo pipefail
 
-ABL=/anvil/projects/x-eng260004/factor_diffusion/ablation_results
-ORIG=/anvil/projects/x-eng260004/factor_diffusion/original_data/celeba
+ABL=${DATA_ROOT}/ablation_results
+ORIG=${DATA_ROOT}/original_data/celeba
 mkdir -p "${ABL}/logs"
 
 module --force purge

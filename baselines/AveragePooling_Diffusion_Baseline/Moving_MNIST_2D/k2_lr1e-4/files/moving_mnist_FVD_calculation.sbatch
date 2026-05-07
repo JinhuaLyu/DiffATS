@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --account=eng260004-ai
+#SBATCH --account=<ACCOUNT>
 #SBATCH --partition=ai
 #SBATCH --gres=gpu:1
 #SBATCH --nodes=1
@@ -8,21 +8,21 @@
 #SBATCH --mem=128G
 #SBATCH --time=10:00:00
 #SBATCH --job-name=Mnist_gen_fvd
-#SBATCH --output=/anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Moving_Mnist/k2_fixlr_A100/logs/gen_fvd_%j.out
-#SBATCH --error=/anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Moving_Mnist/k2_fixlr_A100/logs/gen_fvd_%j.err
+#SBATCH --output=/anvil/scratch/x-<user>/physics_datasets/Experiments_Output/Moving_Mnist/k2_fixlr_A100/logs/gen_fvd_%j.out
+#SBATCH --error=/anvil/scratch/x-<user>/physics_datasets/Experiments_Output/Moving_Mnist/k2_fixlr_A100/logs/gen_fvd_%j.err
 
 module --force purge
 module load anaconda
-source /anvil/scratch/x-ezhou1/envs/celeba_cu124/bin/activate
+source /anvil/scratch/x-<user>/envs/celeba_cu124/bin/activate
 
 # dirs
-SCRIPT_DIR=/anvil/scratch/x-ezhou1/physics_datasets/Experiments/Moving_Mnist
-CKPT=/anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Moving_Mnist/k2_fixlr_A100/checkpoints/latest.pt
-DATA=/anvil/scratch/x-ezhou1/physics_datasets/data/moving_mnist/moving_mnist_20k_2slow.pt
-OUT_DIR=/anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Moving_Mnist/k2_fixlr_A100
+SCRIPT_DIR=/anvil/scratch/x-<user>/physics_datasets/Experiments/Moving_Mnist
+CKPT=/anvil/scratch/x-<user>/physics_datasets/Experiments_Output/Moving_Mnist/k2_fixlr_A100/checkpoints/latest.pt
+DATA=/anvil/scratch/x-<user>/physics_datasets/data/moving_mnist/moving_mnist_20k_2slow.pt
+OUT_DIR=/anvil/scratch/x-<user>/physics_datasets/Experiments_Output/Moving_Mnist/k2_fixlr_A100
 GEN_OUT=${OUT_DIR}/generated_10k.pt
 FVD_OUT=${OUT_DIR}/fvd_results/fvd_report.json
-I3D=/anvil/scratch/x-ezhou1/physics_datasets/Experiments/Moving_Mnist/i3d_torchscript.pt  
+I3D=/anvil/scratch/x-<user>/physics_datasets/Experiments/Moving_Mnist/i3d_torchscript.pt  
 
 mkdir -p ${OUT_DIR}/logs
 mkdir -p ${OUT_DIR}/fvd_results

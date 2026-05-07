@@ -7,8 +7,8 @@ import exponax as ex
 import glob
 import sys
 
-DATA_DIR = "/projects/p32954/jinhua_output/burgers_2d/tucker_factors/tucker_burgers_rT5_rH20_rW20"
-OUT_DIR  = "/home/fzd2816/factor_diffusion/tensor_physics/exp_burgers_2d/data_tucker"
+DATA_DIR = "${OUTPUT_ROOT}/burgers_2d/tucker_factors/tucker_burgers_rT5_rH20_rW20"
+OUT_DIR  = "${REPO_ROOT}/tensor_physics/exp_burgers_2d/data_tucker"
 
 # Pick a random shard and sample
 shards = sorted(glob.glob(f"{DATA_DIR}/tucker_burgers_shard_*.pt"))

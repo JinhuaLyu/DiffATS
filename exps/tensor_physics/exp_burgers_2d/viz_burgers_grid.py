@@ -23,7 +23,7 @@ import numpy as np
 import torch
 
 # ── exponax path ──────────────────────────────────────────────────────────────
-_EXPONAX = '/home/fzd2816/exponax'
+_EXPONAX = '${EXPONAX_ROOT}'
 if _EXPONAX not in sys.path:
     sys.path.insert(0, _EXPONAX)
 

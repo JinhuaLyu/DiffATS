@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH -J mm_preview_row
-#SBATCH -A eng260004-ai
+#SBATCH -A <ACCOUNT>
 #SBATCH -p ai
 #SBATCH -N 1
 #SBATCH -n 1
@@ -8,8 +8,8 @@
 #SBATCH --mem=16G
 #SBATCH --gres=gpu:1
 #SBATCH -t 00:10:00
-#SBATCH -o /anvil/projects/x-eng260004/factor_diffusion/our_method_generation/moving_mnist/logs/preview_row_%j.out
-#SBATCH -e /anvil/projects/x-eng260004/factor_diffusion/our_method_generation/moving_mnist/logs/preview_row_%j.err
+#SBATCH -o ${DATA_ROOT}/our_method_generation/moving_mnist/logs/preview_row_%j.out
+#SBATCH -e ${DATA_ROOT}/our_method_generation/moving_mnist/logs/preview_row_%j.err
 
 # Generate a row of preview frames from a single seed.
 #
@@ -26,8 +26,8 @@
 
 set -euo pipefail
 
-: "${CKPT:=/anvil/projects/x-eng260004/factor_diffusion/our_method_results/moving_mnist/exp_15x64x20_output/checkpoints/epoch2000.pt}"
-: "${OUTDIR:=/anvil/projects/x-eng260004/factor_diffusion/our_method_generation/moving_mnist/preview_rows}"
+: "${CKPT:=${DATA_ROOT}/our_method_results/moving_mnist/exp_15x64x20_output/checkpoints/epoch2000.pt}"
+: "${OUTDIR:=${DATA_ROOT}/our_method_generation/moving_mnist/preview_rows}"
 : "${SEED:=0}"
 : "${N_VIDEOS:=10}"
 : "${BATCH:=10}"
@@ -35,7 +35,7 @@ set -euo pipefail
 : "${N_FRAMES:=5}"
 
 mkdir -p "${OUTDIR}"
-mkdir -p /anvil/projects/x-eng260004/factor_diffusion/our_method_generation/moving_mnist/logs
+mkdir -p ${DATA_ROOT}/our_method_generation/moving_mnist/logs
 
 module load anaconda/2024.02-py311
 source activate video_factor

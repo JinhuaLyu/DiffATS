@@ -176,7 +176,7 @@ def get_args():
 
     # data
     p.add_argument('--data_path', type=str,
-        default='/scratch/bgxp/ezhou1/factor_diffusion_proj/data/burgers_1d/burgers_1d.pt')
+        default='${DATA_ROOT}/data/burgers_1d/burgers_1d.pt')
     p.add_argument('--pool_k', type=int, default=4)
 
     # model
@@ -194,7 +194,7 @@ def get_args():
 
     # logging & saving
     p.add_argument('--output_dir', type=str,
-        default='/scratch/bgxp/ezhou1/factor_diffusion_proj/Experiments_Output/Burgers_1D/k4_fixlr')
+        default='${DATA_ROOT}/Experiments_Output/Burgers_1D/k4_fixlr')
     p.add_argument('--save_every',          type=int,  default=50)
     p.add_argument('--log_every_steps',     type=int,  default=100)
     p.add_argument('--sample_every_epochs', type=int,  default=10)

@@ -2,9 +2,9 @@
 method: "shared_bases"            # alpha-only AlphaOnlyDiT on global PCA basis
 
 # -- Data (paths method-specific; sizes mirror our_method) --------------------
-shard_dir:        "/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/shared_bases"
-alpha_stats_path: "/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/shared_bases/alpha_stats_global_pca_p32_r32.pt"
-dict_path:        "/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/shared_bases/global_dict.pt"
+shard_dir:        "${DATA_ROOT}/tucker_factors/celeba/shared_bases"
+alpha_stats_path: "${DATA_ROOT}/tucker_factors/celeba/shared_bases/alpha_stats_global_pca_p32_r32.pt"
+dict_path:        "${DATA_ROOT}/tucker_factors/celeba/shared_bases/global_dict.pt"
 num_workers:     8
 prefetch_factor: 4
 
@@ -44,12 +44,12 @@ learn_sigma:     false
 # This new train.py is epoch-based, so we use ckpt_every_epoch~=11.
 log_every:        100
 ckpt_every_epoch: 11
-results_dir: "/anvil/projects/x-eng260004/factor_diffusion/ablation_results/shared_bases"
+results_dir: "${DATA_ROOT}/ablation_results/shared_bases"
 
 # -- Resume --------------------------------------------------------------------
 resume: ""
 
 # -- Weights & Biases (project mirrors our_method; run_name method-specific) --
-wandb_project:  "ablation_study"
+wandb_project: "<PROJECT>"
 wandb_run_name: "shared_bases"
 wandb_entity:   ""

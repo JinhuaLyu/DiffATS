@@ -6,7 +6,7 @@ Loads slow_moving_mnist.pt, applies Tucker decomposition directly on the
 Relative Error / Compression Ratio for each [r_T, r_H, r_W] rank combo.
 
 Usage:
-    cd /home/x-jlyu5/jinhua/DiffATS/exps/moving_mnist/data_generate
+    cd ${REPO_ROOT}/exps/moving_mnist/data_generate
     python rank_sweep_slow_nopatch.py
     python rank_sweep_slow_nopatch.py \\
         --n_videos 10 --r_T_list 5 10 20 --r_H_list 16 32 --r_W_list 16 32

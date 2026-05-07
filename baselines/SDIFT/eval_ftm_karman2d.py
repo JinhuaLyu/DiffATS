@@ -26,7 +26,7 @@ def parse_args():
     p.add_argument("--basis_path", type=str, required=True,
                    help="Path to saved basis_best.pth")
     p.add_argument("--data_root", type=str,
-                   default="/projects/p32954/bkx8728/karman_vortex_2d")
+                   default="${DATA_ROOT}/bkx8728/karman_vortex_2d")
     p.add_argument("--split", type=str, default="test")
     p.add_argument("--T", type=int, default=201)
     p.add_argument("--H", type=int, default=128)

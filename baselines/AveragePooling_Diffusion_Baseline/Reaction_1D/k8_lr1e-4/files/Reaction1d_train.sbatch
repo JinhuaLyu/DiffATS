@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=Reaction1d_k8_fixlr
-#SBATCH --account=eng260004-ai
+#SBATCH --account=<ACCOUNT>
 #SBATCH --partition=ai
 #SBATCH --gres=gpu:1
 #SBATCH --nodes=1
@@ -8,25 +8,25 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64G
 #SBATCH --time=05:00:00
-#SBATCH --output=/anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Reaction_1d/k8_fixlr_anvil/logs/0501_train_%j.out
-#SBATCH --error=/anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Reaction_1d/k8_fixlr_anvil/logs/0501_train_%j.err
+#SBATCH --output=/anvil/scratch/x-<user>/physics_datasets/Experiments_Output/Reaction_1d/k8_fixlr_anvil/logs/0501_train_%j.out
+#SBATCH --error=/anvil/scratch/x-<user>/physics_datasets/Experiments_Output/Reaction_1d/k8_fixlr_anvil/logs/0501_train_%j.err
 
 module --force purge
 module load anaconda
-source /anvil/scratch/x-ezhou1/envs/celeba_cu124/bin/activate
+source /anvil/scratch/x-<user>/envs/celeba_cu124/bin/activate
 
-OUTPUT_DIR=/anvil/scratch/x-ezhou1/physics_datasets/Experiments_Output/Reaction_1d/k8_fixlr_anvil
+OUTPUT_DIR=/anvil/scratch/x-<user>/physics_datasets/Experiments_Output/Reaction_1d/k8_fixlr_anvil
 
 mkdir -p ${OUTPUT_DIR}/logs
 mkdir -p ${OUTPUT_DIR}/checkpoints
 
-cd /anvil/scratch/x-ezhou1/physics_datasets/Experiments/Reaction_1d
+cd /anvil/scratch/x-<user>/physics_datasets/Experiments/Reaction_1d
 
-export WANDB_ENTITY=eleanorz924-northwestern-university
+export WANDB_ENTITY=<WANDB_ENTITY>
 export WANDB_PROJECT=reaction1d_k8_fixlr_anvil_0501
 
-python /anvil/scratch/x-ezhou1/physics_datasets/Experiments/Reaction_1d/Reaction_train.py \
-    --data_path         /anvil/scratch/x-ezhou1/physics_datasets/data/reaction_1d/reaction_1d_train.pt \
+python /anvil/scratch/x-<user>/physics_datasets/Experiments/Reaction_1d/Reaction_train.py \
+    --data_path         /anvil/scratch/x-<user>/physics_datasets/data/reaction_1d/reaction_1d_train.pt \
     --pool_k            8 \
     --hidden_dim        512 \
     --num_layers        12 \

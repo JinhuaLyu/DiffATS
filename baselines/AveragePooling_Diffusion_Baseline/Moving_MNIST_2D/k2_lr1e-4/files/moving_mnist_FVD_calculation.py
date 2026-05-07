@@ -102,11 +102,11 @@ def compute_fvd(feats_r: np.ndarray, feats_g: np.ndarray):
 def get_args():
     p = argparse.ArgumentParser(description="FVD for Moving MNIST generation pipeline")
     p.add_argument('--real',        type=str, required=True,
-                   default='/anvil/scratch/x-ezhou1/physics_datasets/data/moving_mnist/moving_mnist_20k_2slow.pt')
+                   default='/anvil/scratch/x-<user>/physics_datasets/data/moving_mnist/moving_mnist_20k_2slow.pt')
     p.add_argument('--gen',         type=str, required=True,
                    help='Path to generated_10k.pt from MovingMnist_generation.py')
     p.add_argument('--i3d',         type=str,
-                   default='/home/x-jlyu5/.cache/fvd/i3d_torchscript.pt')
+                   default='${HOME}/.cache/fvd/i3d_torchscript.pt')
     p.add_argument('--out',         type=str, required=True,
                    help='Output JSON report path')
     p.add_argument('--n',           type=int, default=10000,

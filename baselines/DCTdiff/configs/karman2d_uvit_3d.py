@@ -88,14 +88,14 @@ def get_config():
     # caches multiply, OOM-ing the 64 GB SLURM allocation.
     config.dataset = d(
         name='karman_vortex_3d_cached',
-        train_cache='/projects/p32954/bkx8728/karman_vortex_2d/dct_cache/karman_dct_train.pt',
-        test_cache='/projects/p32954/bkx8728/karman_vortex_2d/dct_cache/karman_dct_test.pt',
-        train_cond='/projects/p32954/bkx8728/karman_vortex_2d/dct_cache/karman_t0_cond_train.pt',
-        test_cond='/projects/p32954/bkx8728/karman_vortex_2d/dct_cache/karman_t0_cond_test.pt',
+        train_cache='${DATA_ROOT}/bkx8728/karman_vortex_2d/dct_cache/karman_dct_train.pt',
+        test_cache='${DATA_ROOT}/bkx8728/karman_vortex_2d/dct_cache/karman_dct_test.pt',
+        train_cond='${DATA_ROOT}/bkx8728/karman_vortex_2d/dct_cache/karman_t0_cond_train.pt',
+        test_cond='${DATA_ROOT}/bkx8728/karman_vortex_2d/dct_cache/karman_t0_cond_test.pt',
         cond_dim=1024,
         # raw-shard fallback paths (only used when name='karman_vortex_3d')
-        train_dir='/projects/p32954/bkx8728/karman_vortex_2d',
-        test_dir='/projects/p32954/bkx8728/karman_vortex_2d/test_data',
+        train_dir='${DATA_ROOT}/bkx8728/karman_vortex_2d',
+        test_dir='${DATA_ROOT}/bkx8728/karman_vortex_2d/test_data',
         T=200,
         H=128,
         W=128,

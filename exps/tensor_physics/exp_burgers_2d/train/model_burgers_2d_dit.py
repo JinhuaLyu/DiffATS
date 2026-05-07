@@ -37,7 +37,7 @@ import torch
 import torch.nn as nn
 
 # Reuse DiT building blocks from the reference repo
-sys.path.insert(0, '/home/x-jlyu5/jinhua/factor_diffusion')
+sys.path.insert(0, '${REPO_ROOT}')
 from video.models.cp_dit import (
     Mlp, modulate,
     TimestepEmbedder, SDPAAttention, DiTBlock, FinalLayerNorm,

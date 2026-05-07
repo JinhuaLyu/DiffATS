@@ -40,8 +40,8 @@ from torch.amp import autocast
 _HERE       = os.path.dirname(os.path.abspath(__file__))           # .../celeba_hq/methods
 _CELEBA_HQ  = os.path.dirname(_HERE)                               # .../celeba_hq
 _OUR_METHOD = os.path.join(_HERE, "our_method")
-_RESULTS    = "/anvil/projects/x-eng260004/factor_diffusion/ablation_results"
-_FACTORS    = "/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba"
+_RESULTS    = "${DATA_ROOT}/ablation_results"
+_FACTORS    = "${DATA_ROOT}/tucker_factors/celeba"
 
 
 # ---------- Imports from our_method (without modifying it) ----------

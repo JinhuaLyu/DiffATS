@@ -382,13 +382,13 @@ if __name__ == "__main__":
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--ema", action="store_true", default=False)
     parser.add_argument("--shard-dir", type=str,
-                        default="/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/shared_bases")
+                        default="${DATA_ROOT}/tucker_factors/celeba/shared_bases")
     parser.add_argument("--alpha-stats-path", type=str,
-                        default="/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/shared_bases/alpha_stats_global_pca_p32_r32.pt")
+                        default="${DATA_ROOT}/tucker_factors/celeba/shared_bases/alpha_stats_global_pca_p32_r32.pt")
     parser.add_argument("--dict-path", type=str,
-                        default="/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/shared_bases/global_dict.pt")
+                        default="${DATA_ROOT}/tucker_factors/celeba/shared_bases/global_dict.pt")
     parser.add_argument("--results_dir", type=str,
-                        default="/anvil/projects/x-eng260004/factor_diffusion/ablation_results/shared_bases")
+                        default="${DATA_ROOT}/ablation_results/shared_bases")
     parser.add_argument("--resume", type=str, default="")
     parser.add_argument("--patch-size", type=int, nargs=2, default=[32, 32])
     parser.add_argument("--image-size", type=int, choices=[128, 256, 512, 1024], default=1024)

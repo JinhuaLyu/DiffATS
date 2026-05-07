@@ -83,7 +83,7 @@ class BurgersDataset(Dataset):
 def get_args():
     p = argparse.ArgumentParser()
     p.add_argument('--shard_dir', type=str,
-        default='/scratch/bgxp/ezhou1/factor_diffusion_proj/data/burgers_2d')
+        default='${DATA_ROOT}/data/burgers_2d')
     p.add_argument('--pool_k',            type=int,  default=8)
     p.add_argument('--fields',            nargs='+', default=['ux', 'uy'])
     p.add_argument('--samples_per_shard', type=int,  default=100)

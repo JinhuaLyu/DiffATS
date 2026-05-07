@@ -21,9 +21,9 @@ import numpy as np
 import torch
 
 
-DEFAULT_GEN_DIR  = ("/work/hdd/bgxp/factor_diffusion/our_method_generation/"
+DEFAULT_GEN_DIR  = ("${DATA_ROOT}/our_method_generation/"
                     "burgers_1d")
-DEFAULT_ORIG_TEST = ("/work/hdd/bgxp/factor_diffusion/original_data/"
+DEFAULT_ORIG_TEST = ("${DATA_ROOT}/original_data/"
                      "burgers_1d/burgers_1d_test.pt")
 
 

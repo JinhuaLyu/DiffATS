@@ -10,8 +10,8 @@ import glob
 import os
 import torch
 
-SHARD_DIR = "/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/no_alignment"
-OUT_PATH  = "/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/no_alignment/vhat_stats_no_alignment_p32_r32.pt"
+SHARD_DIR = "${DATA_ROOT}/tucker_factors/celeba/no_alignment"
+OUT_PATH  = "${DATA_ROOT}/tucker_factors/celeba/no_alignment/vhat_stats_no_alignment_p32_r32.pt"
 
 
 def main():

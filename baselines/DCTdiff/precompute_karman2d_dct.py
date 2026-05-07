@@ -105,9 +105,9 @@ def precompute(input_dir, prefix, out_tokens_path, out_cond_path):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--train-dir', default='/projects/p32954/bkx8728/karman_vortex_2d')
-    parser.add_argument('--test-dir',  default='/projects/p32954/bkx8728/karman_vortex_2d/test_data')
-    parser.add_argument('--out-dir',   default='/projects/p32954/bkx8728/karman_vortex_2d/dct_cache',
+    parser.add_argument('--train-dir', default='${DATA_ROOT}/bkx8728/karman_vortex_2d')
+    parser.add_argument('--test-dir',  default='${DATA_ROOT}/bkx8728/karman_vortex_2d/test_data')
+    parser.add_argument('--out-dir',   default='${DATA_ROOT}/bkx8728/karman_vortex_2d/dct_cache',
                         help='output directory for the cached .pt files (~1.05 GB tokens + ~50 MB cond)')
     parser.add_argument('--skip-test', action='store_true')
     args = parser.parse_args()

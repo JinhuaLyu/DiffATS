@@ -55,8 +55,8 @@ from PIL import Image
 from tqdm import tqdm
 
 # ----------------- Config -----------------
-IMG_DIR = "/anvil/projects/x-eng260004/factor_diffusion/original_data/celeba"
-OUT_DIR = "/anvil/projects/x-eng260004/factor_diffusion/tucker_factors/celeba/shared_bases"
+IMG_DIR = "${DATA_ROOT}/original_data/celeba"
+OUT_DIR = "${DATA_ROOT}/tucker_factors/celeba/shared_bases"
 
 IMG_SIZE   = 1024
 PATCH      = 32

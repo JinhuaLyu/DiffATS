@@ -8,7 +8,7 @@ import glob
 import sys
 
 # Pick a random shard and sample
-shards = sorted(glob.glob("/anvil/projects/x-eng260004/factor_diffusion/original_data/burgers_2d/test_data/test_shard_*.pt"))
+shards = sorted(glob.glob("${DATA_ROOT}/original_data/burgers_2d/test_data/test_shard_*.pt"))
 if not shards:
     print("No shards found in data/")
     sys.exit(1)
@@ -57,7 +57,7 @@ for arr, name in [(ux, "u_x"), (uy, "u_y")]:
         fontsize=9,
     )
 
-    out = f"/home/x-jlyu5/jinhua/factor_diffusion/tensor_physics/exp_burgers_2d/data_generation/viz_{name.replace('_', '')}_spacetime.png"
+    out = f"${REPO_ROOT}/tensor_physics/exp_burgers_2d/data_generation/viz_{name.replace('_', '')}_spacetime.png"
     fig.savefig(out, dpi=150, bbox_inches="tight")
     plt.close(fig)
     print(f"Saved: {out}")

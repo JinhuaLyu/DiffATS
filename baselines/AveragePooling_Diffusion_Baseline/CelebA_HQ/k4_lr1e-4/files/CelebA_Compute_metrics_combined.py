@@ -172,7 +172,7 @@ def get_args():
     p.add_argument("--gen-dir",   required=True,
         help="Directory with generated PNG/JPG images")
     p.add_argument("--orig-dir",
-        default="/anvil/projects/x-eng260004/factor_diffusion/original_data/celeba",
+        default="${DATA_ROOT}/original_data/celeba",
         help="Directory with real CelebA-HQ images")
     p.add_argument("--n-samples",  type=int, default=10000)
     p.add_argument("--batch-size", type=int, default=64)

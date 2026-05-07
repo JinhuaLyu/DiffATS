@@ -11,7 +11,7 @@ Token layout (813 total):
 All hyperparameters live in a YAML config; CLI args override YAML values.
 
 Usage:
-    cd /home/fzd2816/factor_diffusion/tensor_physics/exp_burgers_2d
+    cd ${REPO_ROOT}/tensor_physics/exp_burgers_2d
     python train_burgers_2d.py --config configs/train_v1.yaml --device cuda:0
 
     # Smoke test:
@@ -36,7 +36,7 @@ from tqdm import tqdm
 
 # ── Repo paths ─────────────────────────────────────────────────────────────
 _EXP = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, '/home/x-jlyu5/jinhua/factor_diffusion/video')
+sys.path.insert(0, '${REPO_ROOT}/video')
 
 from diffusion import create_diffusion
 from models.nn import update_ema
@@ -331,7 +331,7 @@ def main():
         grad_clip         = 1.0,
         mixed_precision   = True,
         outdir            = os.path.join(_EXP, 'output', 'train'),
-        wandb_project     = 'factor_diffusion',
+        wandb_project     = '<PROJECT>',
         wandb_run         = 'burgers2d_tucker_dit_v1',
         wandb_entity      = None,
         device            = 'auto',

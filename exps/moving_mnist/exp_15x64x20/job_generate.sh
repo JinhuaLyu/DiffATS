@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH -J mm_generate
-#SBATCH -A eng260004-ai
+#SBATCH -A <ACCOUNT>
 #SBATCH -p ai
 #SBATCH -N 1
 #SBATCH -n 1
@@ -8,8 +8,8 @@
 #SBATCH --mem=32G
 #SBATCH --gres=gpu:1
 #SBATCH -t 01:00:00
-#SBATCH -o /anvil/projects/x-eng260004/factor_diffusion/our_method_generation/moving_mnist/logs/generate_%j.out
-#SBATCH -e /anvil/projects/x-eng260004/factor_diffusion/our_method_generation/moving_mnist/logs/generate_%j.err
+#SBATCH -o ${DATA_ROOT}/our_method_generation/moving_mnist/logs/generate_%j.out
+#SBATCH -e ${DATA_ROOT}/our_method_generation/moving_mnist/logs/generate_%j.err
 
 # Unified driver for generate.py.
 #
@@ -30,8 +30,8 @@
 
 set -euo pipefail
 
-: "${CKPT:=/anvil/projects/x-eng260004/factor_diffusion/our_method_results/moving_mnist/exp_15x64x20_output/checkpoints/epoch2000.pt}"
-: "${OUTDIR:=/anvil/projects/x-eng260004/factor_diffusion/our_method_generation/moving_mnist}"
+: "${CKPT:=${DATA_ROOT}/our_method_results/moving_mnist/exp_15x64x20_output/checkpoints/epoch2000.pt}"
+: "${OUTDIR:=${DATA_ROOT}/our_method_generation/moving_mnist}"
 : "${MODE:=pt}"
 : "${SEED:=0}"
 : "${SCALE:=2.5}"

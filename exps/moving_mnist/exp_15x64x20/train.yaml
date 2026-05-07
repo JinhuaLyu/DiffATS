@@ -1,5 +1,5 @@
 # -- Data ---------------------------------------------------------------------
-shard_dir: "/projects/p32954/jinhua_output/moving_mnist/tucker_data/tucker_g_r15_64_20"
+shard_dir: "${OUTPUT_ROOT}/moving_mnist/tucker_data/tucker_g_r15_64_20"
 num_workers: 4
 prefetch_factor: 2
 
@@ -36,9 +36,9 @@ sample_steps: 250
 log_every: 100
 ckpt_every_epoch: 10
 n_samples: 4
-results_dir: "/projects/p32954/jinhua_output/moving_mnist/exp_15x64x20_output"
+results_dir: "${OUTPUT_ROOT}/moving_mnist/exp_15x64x20_output"
 
 # -- Weights & Biases ----------------------------------------------------------
-wandb_project: "factor_diffusion"
+wandb_project: "<PROJECT>"
 wandb_run_name: "video_tucker_15x64x20"
 wandb_entity: ""
