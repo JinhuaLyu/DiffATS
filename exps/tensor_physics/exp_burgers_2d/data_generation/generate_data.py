@@ -13,7 +13,7 @@ DG_MIN, DG_MAX = 1.5, 10.0
 OUTPUT_DIR     = "/projects/p32954/jinhua_data/burgers_2d"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# ── 构建查找表 ────────────────────────────────────────────────────────────────
+# Build lookup table
 valid = np.load("valid_configs.npy", allow_pickle=True)
 dg_discrete_sorted = sorted(set(float(c["diffusion_gamma"]) for c in valid))
 
@@ -23,18 +23,18 @@ for c in valid:
         (float(c["convection_delta"]), str(c["ic_config"]))
     )
 
-print(f"有效配置数: {len(valid)}")
-print(f"离散 dg 值: {dg_discrete_sorted}")
-print(f"连续采样范围: dg ∈ [{DG_MIN}, {DG_MAX}]（对数均匀）\n")
+print(f"Number of valid configurations: {len(valid)}")
+print(f"Discrete dg values: {dg_discrete_sorted}")
+print(f"Continuous sampling range: dg in [{DG_MIN}, {DG_MAX}] (log-uniform)\n")
 
 def get_valid_pairs(dg):
-    """给定连续 dg，返回保守有效的 (cd, ic) 列表（floor 查找）"""
+    """Given continuous dg, return conservatively valid (cd, ic) list via floor lookup."""
     candidates = [d for d in dg_discrete_sorted if d <= dg]
     if not candidates:
         return []
     return valid_pairs[max(candidates)]
 
-# ── 采样主循环 ────────────────────────────────────────────────────────────────
+# Main sampling loop
 rng           = np.random.default_rng(seed=42)
 sample_buffer = []
 shard_idx     = 0
@@ -42,16 +42,16 @@ sample_idx    = 0
 global_seed   = 0
 
 while sample_idx < TOTAL_SAMPLES:
-    # Step 1：对数均匀采样连续 dg
+    # Step 1: log-uniform sampling of continuous dg
     dg = float(np.exp(rng.uniform(np.log(DG_MIN), np.log(DG_MAX))))
 
-    # Step 2：查出该 dg 下的保守有效 (cd, ic) 集合
+    # Step 2: look up the conservatively valid (cd, ic) set for this dg
     pairs = get_valid_pairs(dg)
     if not pairs:
-        continue   # dg 低于所有离散值，直接重采
+        continue   # dg below all discrete values; resample
     nu = dg / (128 ** 2 * 2 * 2)
 
-    # Step 3：从有效集合中均匀随机选 (cd, ic)
+    # Step 3: uniformly sample (cd, ic) from the valid set
     idx_p = rng.integers(len(pairs))
     cd, ic = pairs[idx_p]
 
@@ -73,7 +73,7 @@ while sample_idx < TOTAL_SAMPLES:
     global_seed += BATCH_SIZE
 
     if not np.isfinite(data).all():
-        print(f"  ✗ NaN/Inf，跳过", flush=True)
+        print(f"  [skip] NaN/Inf detected", flush=True)
         continue
 
     for b in range(batch):
@@ -94,7 +94,7 @@ while sample_idx < TOTAL_SAMPLES:
             sample_buffer = []
             shard_idx += 1
 
-# 写入剩余不足 SAMPLES_PER_PT 的样本
+# Flush remaining samples (less than SAMPLES_PER_PT)
 if sample_buffer:
     out = f"{OUTPUT_DIR}/shard_{shard_idx:05d}.pt"
     torch.save(sample_buffer, out)

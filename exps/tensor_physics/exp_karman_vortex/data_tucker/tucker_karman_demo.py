@@ -101,7 +101,7 @@ def render_frame_pair(vor_orig: np.ndarray, vor_recon: np.ndarray,
     orig_rgba  = _apply_lut(vor_orig.T[::-1],  _VOR_LUT, vmin, vmax)
     recon_rgba = _apply_lut(vor_recon.T[::-1], _VOR_LUT, vmin, vmax)
 
-    # 顺时针旋转90度
+    # Rotate 90 degrees clockwise
     img_orig  = Image.fromarray(orig_rgba,  mode="RGBA").transpose(Image.Transpose.ROTATE_270)
     img_recon = Image.fromarray(recon_rgba, mode="RGBA").transpose(Image.Transpose.ROTATE_270)
 

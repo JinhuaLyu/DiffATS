@@ -5,7 +5,7 @@ sys.path.insert(0, "/home/fzd2816/apebench")
 import apebench
 
 TUCKER_RANK = [5, 20, 20]
-N_VALIDATE  = 3   # 每种配置验证几个样本
+N_VALIDATE  = 3   # Number of samples to validate per configuration
 
 def tucker_decompose(tensor, rank):
     import tensorly as tl
@@ -31,7 +31,7 @@ ic_configs = [
 total = len(convection_deltas) * len(diffusion_gammas) * len(ic_configs)
 valid_configs = []
 
-RESUME_FROM = 144  # 从第 145 个开始（0-indexed）
+RESUME_FROM = 144  # Resume from the 145th configuration (0-indexed)
 
 for i, (cd, dg, ic) in enumerate(itertools.product(convection_deltas, diffusion_gammas, ic_configs)):
     if i < RESUME_FROM:
@@ -46,9 +46,9 @@ for i, (cd, dg, ic) in enumerate(itertools.product(convection_deltas, diffusion_
         num_test_samples=N_VALIDATE,
     )
     data = np.array(scenario.get_test_data())  # (N_VALIDATE, 201, 2, 128, 128)
-    # 检查是否发散（NaN/Inf）
+    # Check for numerical divergence (NaN/Inf)
     if not np.isfinite(data).all():
-        print(f"  ✗ 数值发散（NaN/Inf），跳过", flush=True)
+        print(f"  [skip] Numerical divergence (NaN/Inf)", flush=True)
         continue
 
     l2s = []
@@ -57,7 +57,7 @@ for i, (cd, dg, ic) in enumerate(itertools.product(convection_deltas, diffusion_
         recon = tucker_decompose(sample_ux, TUCKER_RANK)
         l2s.append(relative_l2(sample_ux, recon))
     mean_l2 = float(np.mean(l2s))
-    status = "✓" if mean_l2 <= 0.01 else "✗"
+    status = "[ok]" if mean_l2 <= 0.01 else "[fail]"
     print(f"  {status} Rel-L2={mean_l2:.4f}", flush=True)
     if mean_l2 <= 0.01:
         valid_configs.append(dict(
@@ -68,4 +68,4 @@ for i, (cd, dg, ic) in enumerate(itertools.product(convection_deltas, diffusion_
         ))
 
 np.save("valid_configs.npy", valid_configs)
-print(f"\n{len(valid_configs)}/{total} 配置通过验证，已保存 valid_configs.npy")
+print(f"\n{len(valid_configs)}/{total} configurations passed validation; saved to valid_configs.npy")

@@ -7,7 +7,7 @@ import exponax as ex
 import glob
 import sys
 
-# ── 随机选一个 shard 和样本 ────────────────────────────────────────────────────
+# Pick a random shard and sample
 shards = sorted(glob.glob("/anvil/projects/x-eng260004/factor_diffusion/original_data/burgers_2d/test_data/test_shard_*.pt"))
 if not shards:
     print("No shards found in data/")
@@ -31,7 +31,7 @@ print(f"nu={nu:.2e}  cd={cd:.3f}  dg={dg:.3f}  ic={ic}")
 print(f"ux range: [{ux.min():.4f}, {ux.max():.4f}]")
 print(f"uy range: [{uy.min():.4f}, {uy.max():.4f}]")
 
-# ── 3D 时空体积渲染 ────────────────────────────────────────────────────────────
+# 3D spatio-temporal volume rendering
 for arr, name in [(ux, "u_x"), (uy, "u_y")]:
     trj = jnp.array(arr[:, None, :, :])   # (201, 1, 128, 128)
     vlim_abs = float(np.quantile(np.abs(np.array(trj)), 0.8))

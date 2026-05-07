@@ -10,7 +10,7 @@ import sys
 DATA_DIR = "/projects/p32954/jinhua_output/burgers_2d/tucker_factors/tucker_burgers_rT5_rH20_rW20"
 OUT_DIR  = "/home/fzd2816/factor_diffusion/tensor_physics/exp_burgers_2d/data_tucker"
 
-# ── 随机选一个 shard 和样本 ───────────────────────────────────────────────────
+# Pick a random shard and sample
 shards = sorted(glob.glob(f"{DATA_DIR}/tucker_burgers_shard_*.pt"))
 if not shards:
     print("No shards found.")
@@ -42,7 +42,7 @@ print(f"Shard : {shard_path}")
 print(f"Row   : {i}  sample_idx={sample_idx}  field={field_name}")
 print(f"nu={nu:.2e}  cd={cd:.3f}  dg={dg:.3f}  ic={ic_config}")
 
-# ── 重建速度场 ────────────────────────────────────────────────────────────────
+# Reconstruct the velocity field
 # t=0: initial condition
 frame0 = U_ic @ Vh_ic                                        # (128, 128)
 # t=1..200: Tucker reconstruction
@@ -51,7 +51,7 @@ field  = np.concatenate([frame0[None], traj], axis=0)        # (201, 128, 128)
 
 print(f"field shape: {field.shape}  range: [{field.min():.4f}, {field.max():.4f}]")
 
-# ── 3D 时空体积渲染 ──────────────────────────────────────────────────────────
+# 3D spatio-temporal volume rendering
 trj = jnp.array(field[:, None, :, :])   # (201, 1, 128, 128)
 vlim_abs = float(np.quantile(np.abs(np.array(trj)), 0.8))
 vlim = (-vlim_abs, vlim_abs)

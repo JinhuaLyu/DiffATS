@@ -5,7 +5,7 @@ import exponax as ex
 import matplotlib.pyplot as plt
 import jax.numpy as jnp
 
-# ── 1. 检查维度 ───────────────────────────────────────────────────────────────
+# 1. Check tensor shapes
 
 import torch
 ux_pt = torch.load("data/ux/sample_00000.pt", weights_only=True)
@@ -27,7 +27,7 @@ else:
     print("metadata.npy not found, skipping.")
     meta0 = {"nu": float("nan"), "ic_config": "unknown"}
 
-# ── 2. 3D 时空体积渲染 ────────────────────────────────────────────────────────
+# 2. 3D spatio-temporal volume rendering
 
 import matplotlib as mpl
 

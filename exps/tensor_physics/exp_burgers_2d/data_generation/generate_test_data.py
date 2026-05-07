@@ -21,9 +21,9 @@ for c in valid:
         (float(c["convection_delta"]), str(c["ic_config"]))
     )
 
-print(f"有效配置数: {len(valid)}")
-print(f"离散 dg 值: {dg_discrete_sorted}")
-print(f"连续采样范围: dg ∈ [{DG_MIN}, {DG_MAX}]（对数均匀）\n")
+print(f"Number of valid configurations: {len(valid)}")
+print(f"Discrete dg values: {dg_discrete_sorted}")
+print(f"Continuous sampling range: dg in [{DG_MIN}, {DG_MAX}] (log-uniform)\n")
 
 def get_valid_pairs(dg):
     candidates = [d for d in dg_discrete_sorted if d <= dg]
@@ -67,7 +67,7 @@ while sample_idx < TOTAL_SAMPLES:
     global_seed += BATCH_SIZE
 
     if not np.isfinite(data).all():
-        print(f"  ✗ NaN/Inf，跳过", flush=True)
+        print(f"  [skip] NaN/Inf detected", flush=True)
         continue
 
     for b in range(batch):
